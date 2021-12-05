@@ -218,7 +218,7 @@ elif choice == 'Projects':
 
     st.markdown("<h3 style='text-align: left; color: black;'>Send Email</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>May 2020 - June 2020</div>", unsafe_allow_html=True)
-    st.markdown("""- This project is about sending Emails to registered Email IDs using **smtplib Module**""")
+    st.markdown("""- This project is about sending Emails to registered Email IDs using **Smtplib Module**""")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Send_email)""")
 
     st.markdown("---")
