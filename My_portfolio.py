@@ -73,7 +73,7 @@ elif choice == 'About':
 - **Business Data Analytics -** Power BI, Excel, EDA, Python Libraries for Analytics point and Model Building''')
 
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Business Analytics</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: black;'>iNeuron</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: black;'>iNeuron.ai</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>6/2021 - 11/2021", unsafe_allow_html=True)
     st.markdown("""- Detailed **Business Analytics** course, learned **Python Core, Power BI, Tableau, Advanced Excel and Statistics** to give me the most competitive edge
 - **Python -** Python Core; **Libraries:** Pandas, Numpy, Seaborn, etc.
