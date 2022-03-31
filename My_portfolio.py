@@ -65,8 +65,7 @@ elif choice == 'About':
     st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma in IT, Networking & Cloud Computing</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute(NSTI)</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>11/2019 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat</span></div>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>Pursuing</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>11/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat</span></div>", unsafe_allow_html=True)
     st.markdown('''- Sponsored by **IBM** and **Ministry of Skill Development and Entrepreneurship (MSDE), India.** (NSQF Level-6)
 - **Web Designing -** HTML, CSS, DBMS, PHP, Python
 - **Web Development -** Bootstrap, Cloud Computing (AWS and IBM Cloud)
@@ -125,17 +124,23 @@ elif choice == 'About':
 # INTERNSHIP EXPERIENCE
 elif choice == 'Internship Experience':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Internship Experience</h1>", unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
     st.markdown("<h3 style='text-align: left; color: black;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>IBM</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>10/2021 - Pursuing</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: darkblue;'>10/2021 - 03/2022</div>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
     st.markdown("""- Understand what is AI, classification of AI, Applications of AI and latest market trends
-- Build **Design Thinking AI Project** and its **Architecture**
-- Perform **Exploratory Data Analysis (EDA)** with tools like Python and relevant packages
-- Build **Machine Learning Models** to develop new era AI applications
-- Understand what is **Deep Learning**, how to build and train Deep Learning models
-- **Statistical tools to interpret data sets**, paying particular attention to trends and patterns that could be valuable for diagnostic and predictive analytics efforts
-- **Prepare reports** for effectively communicating trends, patterns, and predictions using relevant data""")
+    - Build **Design Thinking AI Project** and its **Architecture**
+    - Perform **Exploratory Data Analysis (EDA)** with tools like Python and relevant packages
+    - Build **Machine Learning Models** to develop new era AI applications
+    - Understand what is **Deep Learning**, how to build and train Deep Learning models
+    - **Statistical tools to interpret data sets**, paying particular attention to trends and patterns that could be valuable for diagnostic and predictive analytics efforts
+    - **Prepare reports** for effectively communicating trends, patterns, and predictions using relevant data
+
+- Check out my 'GitHub' repo: https://github.com/iamswati/AI-Based-Brain-Tumor-Detection
+- **Project Flow Chart:** https://drive.google.com/file/d/18S6yXmKtkfr5v3C8LKWl8W3N6rHzYXkW/view""")
 
     st.markdown("***")
 
@@ -164,9 +169,7 @@ elif choice == 'Projects':
     - To understand the Image data
     - To understand the basic concept of the project
     - To detect the right MRI scan images by using ML model
-        
-        
-    - **Team Size:** 5""")
+- **Team Size:** 5""")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/AI-Based-Brain-Tumor-Detection)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://nostalgic-wright-bf9840.netlify.app/)""")
 
     st.markdown("---")
@@ -286,6 +289,8 @@ elif choice == 'Resume':
 
     st.markdown("<div><h4 style='text-align: center; colour: darkblue;'>Created Resume with the help of Creddle (<a href='http://resume.creddle.io/resume/4bukqdwr0ei', target='_blank'>Link</a>)</h4></div>", unsafe_allow_html=True)
 
+    st.markdown("***")
+    
     st.markdown("<div><iframe style='border: 1px blue solid'; src='https://resume.creddle.io/embed/4bukqdwr0ei' width='852' height='1102' seamless></iframe></div>", unsafe_allow_html=True)
 
 
