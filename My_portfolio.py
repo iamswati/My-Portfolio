@@ -139,7 +139,7 @@ elif choice == 'Internship Experience':
     - **Statistical tools to interpret data sets**, paying particular attention to trends and patterns that could be valuable for diagnostic and predictive analytics efforts
     - **Prepare reports** for effectively communicating trends, patterns, and predictions using relevant data
 
-- Check out my 'GitHub' repo: https://github.com/iamswati/AI-Based-Brain-Tumor-Detection
+- Check out my **GitHub repo**: https://github.com/iamswati/AI-Based-Brain-Tumor-Detection
 - **Project Flow Chart:** https://drive.google.com/file/d/18S6yXmKtkfr5v3C8LKWl8W3N6rHzYXkW/view""")
 
     st.markdown("***")
@@ -288,8 +288,6 @@ elif choice == 'Resume':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Resume</h1>", unsafe_allow_html=True)
 
     st.markdown("<div><h4 style='text-align: center; colour: darkblue;'>Created Resume with the help of Creddle (<a href='http://resume.creddle.io/resume/4bukqdwr0ei', target='_blank'>Link</a>)</h4></div>", unsafe_allow_html=True)
-
-    st.markdown("***")
     
     st.markdown("<div><iframe style='border: 1px blue solid'; src='https://resume.creddle.io/embed/4bukqdwr0ei' width='852' height='1102' seamless></iframe></div>", unsafe_allow_html=True)
 
