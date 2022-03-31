@@ -146,13 +146,14 @@ elif choice == 'Internship Experience':
 
     st.write("""<h3 style='text-align: left; color: black;'>Data Science & Business Analytics Intern</h3>""", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>The Sparks Foundation</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>9/2021 - 10/2021</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: darkblue;'>09/2021 - 09/2021</div>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
     st.markdown("""- Completed many **TASKS** provided by TSF
     - **TASK 1 -** Predict the optimum number of clusters and represent it visually using Unsupervised ML algorithms
     - **TASK 2 -** Predict the percentage of a student based on the no. of study hours Supervised ML algorithms
     - **TASK 3 -** Create the Decision Tree classifier and visualize it graphically
     - **TASK 4 -** Create a dashboard through Excel and find out weak areas where you can work to make more profit
+    
 - Check out my **GitHub repo**: https://github.com/iamswati/TheSparksFoundation-Intern
 - **Received LoR** from The Sparks Foundation: https://truecertificates.com/verified/GM5RV7YDGB""")
 
@@ -165,7 +166,7 @@ elif choice == 'Projects':
     
     st.markdown("<h3 style='text-align: left; color: black;'>AI Based Brain Tumor Detection</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Feb 2022 - Feb 2022</div>", unsafe_allow_html=True)
-    st.markdown("""- This problem statement was given by **IBM Mentor** during **Internship in Artificial Intelligence at IBM**. The main objective of this project:
+    st.markdown("""- This problem statement was given by **IBM Mentor** during my **Internship in Artificial Intelligence at IBM**. The main objective of this project:
     - To understand the Image data
     - To understand the basic concept of the project
     - To detect the right MRI scan images by using ML model
