@@ -156,6 +156,18 @@ elif choice == 'Internship Experience':
 elif choice == 'Projects':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Projects</h1>", unsafe_allow_html=True)
 
+    st.markdown("<h3 style='text-align: left; color: black;'>AI Based Brain Tumor Detection</h3>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>Feb 2022 - Feb 2022</div>", unsafe_allow_html=True)
+    st.markdown("""- This problem statement was given by **IBM Mentor** during **Internship in Artificial Intelligence at IBM**. The main objective of this project:
+        - To understand the Image data
+        - To understand the basic concept of the project
+        - To detect the right MRI scan images by using ML model
+        
+    - **Team Size:** 5""")
+    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/AI-Based-Brain-Tumor-Detection)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://nostalgic-wright-bf9840.netlify.app/)""")
+
+    st.markdown("---")
+    
     st.markdown("<h3 style='text-align: left; color: black;'>EDA on Loan Payments Data</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Sep 2021 - Oct 2021</div>", unsafe_allow_html=True)
     st.markdown("""- This project will perform initial Analysis and **EDA (Exploratory Data Analysis)** on Loan Payments Data""")
