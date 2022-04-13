@@ -288,9 +288,9 @@ elif choice == 'Digital Badges & Certificates':
 elif choice == 'Resume':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Resume</h1>", unsafe_allow_html=True)
 
-    st.markdown("<div><h4 style='text-align: center; colour: darkblue;'>Created Resume with the help of Creddle (<a href='http://resume.creddle.io/resume/4bukqdwr0ei', target='_blank'>Link</a>)</h4></div>", unsafe_allow_html=True)
+    st.markdown("<div><h4 style='text-align: center; colour: darkblue;'><a href='https://iamswati.github.io/Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
     
-    st.markdown("<div><iframe style='border: 1px blue solid'; src='https://resume.creddle.io/embed/4bukqdwr0ei' width='852' height='1102' seamless></iframe></div>", unsafe_allow_html=True)
+    st.markdown("<div><iframe style='border: 1px blue solid'; src='https://iamswati.github.io/Resume.pdf' width='852' height='1102' seamless></iframe></div>", unsafe_allow_html=True)
 
 
 #CONTACT
