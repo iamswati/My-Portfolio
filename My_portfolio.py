@@ -293,7 +293,7 @@ elif choice == 'Resume':
 
     st.markdown("<div><h4 style='text-align: left; colour: darkblue;'><a href='https://iamswati.github.io/Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
     
-    st.markdown("<div><iframe src="https://iamswati.github.io/Resume.pdf" width="100%" height="400" frameborder="0" scrolling="no"></iframe></div>", unsafe_allow_html=True)
+    st.markdown("<div><iframe src='https://iamswati.github.io/Resume.pdf' width='100%' height='400' frameborder='0' scrolling='no'></iframe></div>", unsafe_allow_html=True)
 
 
 #CONTACT
