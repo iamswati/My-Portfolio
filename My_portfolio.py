@@ -52,7 +52,7 @@ if choice == 'Home':
     # st.markdown("<div style='text-align: center;'><img src='/img/photo.png' width='175' height='175'></div>", unsafe_allow_html=True)
     
     st.markdown("""<h1 style='text-align: center; color: darkblue;'>Hi👋, I'm Swati Gulati 😊</h1>""", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: center; color: black;'>Artificial Intelligence Intern at IBM | Data Analyst | Web Developer | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center; color: black;'>AI Intern at IBM | Data Analyst | Web Developer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
 
 
 #ABOUT
@@ -65,7 +65,7 @@ elif choice == 'About':
     st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma in IT, Networking & Cloud Computing</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute(NSTI)</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>11/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat</span></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>11/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
     st.markdown('''- Sponsored by **IBM** and **Ministry of Skill Development and Entrepreneurship (MSDE), India.** (NSQF Level-6)
 - **Web Designing -** HTML, CSS, DBMS, PHP, Python
 - **Web Development -** Bootstrap, Cloud Computing (AWS and IBM Cloud)
@@ -73,7 +73,7 @@ elif choice == 'About':
 
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Business Analytics</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>iNeuron.ai</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>6/2021 - 11/2021", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>06/2021 - 11/2021", unsafe_allow_html=True)
     st.markdown("""- Detailed **Business Analytics** course, learned **Python Core, Power BI, Tableau, Advanced Excel and Statistics** to give me the most competitive edge
 - **Python -** Python Core; **Libraries:** Pandas, Numpy, Seaborn, etc.
 - **Business Statistics -** Data Analysis, Elementary Statistics
@@ -82,6 +82,9 @@ elif choice == 'About':
 - **Excel -** Formulas, Linear & Growth Trend, Dollar Notation, Lookup, Statistical, Formatting, Pivot Tables, etc.
 - ** Power BI**""")
     
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>Bachelor's Degree</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>01/2019 - 01/2022", unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -96,8 +99,8 @@ elif choice == 'About':
 * **Tools & Technologies**
     - **Python**
     - **PHP**
-    - **HTML**
-    - **CSS**
+    - **HTML5**
+    - **CSS3**
     - **Bootstrap**
     - **SQL**
     - **MySQL**
@@ -288,9 +291,9 @@ elif choice == 'Digital Badges & Certificates':
 elif choice == 'Resume':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Resume</h1>", unsafe_allow_html=True)
 
-    st.markdown("<div><h4 style='text-align: center; colour: darkblue;'><a href='https://iamswati.github.io/Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
+    st.markdown("<div><h4 style='text-align: left; colour: darkblue;'><a href='https://iamswati.github.io/Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
     
-    st.markdown("<div><iframe style='border: 1px blue solid'; src='https://iamswati.github.io/Resume.pdf' width='852' height='1102' seamless></iframe></div>", unsafe_allow_html=True)
+    st.markdown("<div><iframe style='border: 1px blue solid'; src='https://iamswati.github.io/Resume.pdf' width='15002' height='1300' seamless></iframe></div>", unsafe_allow_html=True)
 
 
 #CONTACT
