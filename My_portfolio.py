@@ -63,10 +63,10 @@ elif choice == 'About':
     st.markdown("---")
     
     st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma in IT, Networking & Cloud Computing</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute(NSTI)</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute (NSTI), under DGT (MSDE, India) & in collaboration with IBM</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 08/2021<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
-    st.markdown('''- Sponsored by **IBM** and **Ministry of Skill Development and Entrepreneurship (MSDE), India.** (NSQF Level-6)
+    st.markdown('''
 - **Web Designing -** HTML, CSS, DBMS, PHP, Python
 - **Web Development -** Bootstrap, Cloud Computing (AWS and IBM Cloud)
 - **Business Data Analytics -** Power BI, Excel, EDA, Python Libraries for Analytics point and Model Building''')
