@@ -52,7 +52,7 @@ if choice == 'Home':
     # st.markdown("<div style='text-align: center;'><img src='/img/photo.png' width='175' height='175'></div>", unsafe_allow_html=True)
     
     st.markdown("""<h1 style='text-align: center; color: darkblue;'>Hi👋, I'm Swati Gulati 😊</h1>""", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: center; color: black;'>AI Intern at IBM | Data Analyst | Web Developer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center; color: black;'>Data Analyst | Web Developer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
 
 
 #ABOUT
@@ -65,7 +65,7 @@ elif choice == 'About':
     st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma in IT, Networking & Cloud Computing</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute(NSTI)</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>11/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 08/2021<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
     st.markdown('''- Sponsored by **IBM** and **Ministry of Skill Development and Entrepreneurship (MSDE), India.** (NSQF Level-6)
 - **Web Designing -** HTML, CSS, DBMS, PHP, Python
 - **Web Development -** Bootstrap, Cloud Computing (AWS and IBM Cloud)
@@ -80,11 +80,13 @@ elif choice == 'About':
 - **Descriptive Analytics -** EDA
 - **Predictive  Analytics -** Machine Learning & Deep Learning Models
 - **Excel -** Formulas, Linear & Growth Trend, Dollar Notation, Lookup, Statistical, Formatting, Pivot Tables, etc.
-- ** Power BI**""")
+- **Power BI**
+""")
     
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Bachelor's Degree</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2019 - 01/2022", unsafe_allow_html=True)
+    st.markdown("""- Result Awaited""")
 
     st.markdown("---")
 
@@ -98,16 +100,16 @@ elif choice == 'About':
     
 * **Tools & Technologies**
     - **Python**
-    - **PHP**
+    - **Power BI**
     - **HTML5**
     - **CSS3**
     - **Bootstrap**
     - **SQL**
-    - **MySQL**
     - **MongoDB**
+    - **Git**
     - **AWS**
     - **IBM Cloud**
-    - **MS Office**
+    - **MS Excel**
     
 * **Interpersonal Skills**
     - **Communication Skills**
@@ -117,7 +119,10 @@ elif choice == 'About':
     st.markdown("---")
 
     st.markdown("<h2 style='text-align: center; color: black;'>Achievement</h2>", unsafe_allow_html=True)
-    st.markdown("<h5 style='text-align: center; color: darkblue;'>Got Certified in Data Analyst awarded by IBM & Think-IT</h5>", unsafe_allow_html=True)
+    
+    st.markdown("<h5 style='color: darkblue;'>1. Achieved 9th(84.2%) All India Female Rank in Advanced Diploma Course</h5>", unsafe_allow_html=True)
+    
+    st.markdown("<h5 style='color: darkblue;'>2. Got Certified in Data Analyst awarded by IBM & Think-IT</h5>", unsafe_allow_html=True)
     st.markdown("""- I got an opportunity from **Edunet Foundation** for **IBM Skillsbuild Data Camp** that's of **5 months** and offered by **IBM** and **Think-it**
 - I learned a lot of things during this camp and got exposure to new things as I worked on 2-mini projects and one team project based on **COVID-19 Data**
 - From this camp, I learned many things about **Data Visualization, Data Science, and Machine Learning**
@@ -262,7 +267,7 @@ elif choice == 'Digital Badges & Certificates':
 
     st.markdown("***")
 
-    st.markdown("""[![Foo](https://images.credly.com/size/200x200/images/76326afb-199d-4250-a74f-01bc86dda118/Cognitive_Class_-_Data_Visual_w_Python.png)](https://www.credly.com/earner/earned/badge/c46beb52-44d4-4b1d-9062-b25c97406fda)                                                                                                                                                             [![Foo](https://media-exp1.licdn.com/dms/image/C4E2DAQFZaTtfXXMP2A/profile-treasury-image-shrink_160_160/0/1634037947868?e=1638644400&v=beta&t=zOIebxeVCJ58QvZ-d5RS-HhIlmwverKd5x8CJrAMqyc)](https://truecertificates.com/verified/QVN7YH85ZY)                                                                                                                                                                                                                                                                                                       [![Foo](https://images.credly.com/size/200x200/images/4f76c627-c180-49ae-a5a0-742885eef581/Working_in_a_Digital_World-_Professional_Skills.png)](https://www.credly.com/earner/earned/badge/a56638c4-093e-48dc-a8fa-dc22ab22fb13)""")
+    st.markdown("""[![Foo](https://images.credly.com/size/200x200/images/76326afb-199d-4250-a74f-01bc86dda118/Cognitive_Class_-_Data_Visual_w_Python.png)](https://www.credly.com/earner/earned/badge/c46beb52-44d4-4b1d-9062-b25c97406fda)                                                                                                                                                             [![Foo](https://images.credly.com/size/200x200/images/49211314-919e-4207-885a-7d2ff76ddb07/Statistics_101_-_CC.png)](https://www.credly.com/earner/earned/badge/8c47a5d2-48a6-4ddb-b5b7-044a52909c24)                                                                                                                                                                                                                                                                                                       [![Foo](https://images.credly.com/size/200x200/images/4f76c627-c180-49ae-a5a0-742885eef581/Working_in_a_Digital_World-_Professional_Skills.png)](https://www.credly.com/earner/earned/badge/a56638c4-093e-48dc-a8fa-dc22ab22fb13)""")
 
     st.markdown("""---""")
     
@@ -282,7 +287,7 @@ elif choice == 'Digital Badges & Certificates':
 
     st.markdown("***")
 
-    st.markdown("""[![Foo](https://images.credly.com/size/200x200/images/dfd6eb51-4caa-4ffe-b107-85ece064370c/Data_Science_Methodologies.png)](https://www.credly.com/earner/earned/badge/dd218b52-34a9-4e32-a5da-e9a136d35972)                             [![Foo](https://images.credly.com/size/200x200/images/d7321425-c989-4bf9-846a-cd2a647d213b/Data_Sci_Foundations_Level_2_-_CC_-_2019.png)](https://www.credly.com/earner/earned/badge/a265f8a4-bd0c-47a5-ba44-4da15432e6e9)                             [![Foo](https://images.credly.com/size/200x200/images/49211314-919e-4207-885a-7d2ff76ddb07/Statistics_101_-_CC.png)](https://www.credly.com/earner/earned/badge/8c47a5d2-48a6-4ddb-b5b7-044a52909c24)                             """)
+    st.markdown("""[![Foo](https://images.credly.com/size/200x200/images/dfd6eb51-4caa-4ffe-b107-85ece064370c/Data_Science_Methodologies.png)](https://www.credly.com/earner/earned/badge/dd218b52-34a9-4e32-a5da-e9a136d35972)                             [![Foo](https://images.credly.com/size/200x200/images/d7321425-c989-4bf9-846a-cd2a647d213b/Data_Sci_Foundations_Level_2_-_CC_-_2019.png)](https://www.credly.com/earner/earned/badge/a265f8a4-bd0c-47a5-ba44-4da15432e6e9)                             """)
 
     st.markdown("***")
 
@@ -298,14 +303,12 @@ elif choice == 'Resume':
 elif choice == 'Contact':
     
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Contact</h1>", unsafe_allow_html=True)
-    st.markdown("""[![Foo](https://img.icons8.com/external-kiranshastry-solid-kiranshastry/25/000000/external-email-advertising-kiranshastry-solid-kiranshastry-1.png)](swatigulati@outlook.in)[ **swatigulati@outlook.in**](swatigulati@outlook.in)""")
+    st.markdown("""[![Foo](https://img.icons8.com/external-kiranshastry-solid-kiranshastry/25/000000/external-email-advertising-kiranshastry-solid-kiranshastry-1.png)](sg131019@gmail.com)[ **sg131019@gmail.com**](sg131019@gmail.com)""")
     st.markdown("""![Foo](https://img.icons8.com/external-those-icons-fill-those-icons/25/000000/external-mobile-phone-mobile-telephone-those-icons-fill-those-icons-4.png) **+919306979702**""")
     st.markdown("""![Foo](https://img.icons8.com/material-rounded/25/000000/marker.png) **Ambala, India**""")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/linkedin.png)](https://www.linkedin.com/in/iamswatigulati/)[ **linkedin.com/in/iamswatigulati**](https://www.linkedin.com/in/iamswatigulati/)""")
     st.markdown("""![Foo](https://img.icons8.com/ios-glyphs/25/000000/skype.png) **live:.cid.a9e896b0474b62f0**""")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/github.png)](https://github.com/iamswati)[ **github.com/iamswati**](https://github.com/iamswati)""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/badge.png)](https://www.credly.com/users/swati-gulati.96a4109b/badges)[ **credly.com/users/swati-gulati.96a4109b/badges**](https://www.credly.com/users/swati-gulati.96a4109b/badges)""")
     st.markdown("""[![Foo](https://img.icons8.com/windows/25/000000/hackerrank.png)](https://www.hackerrank.com/iamswati13?hr_r=1)[ **hackerrank.com/iamswati13?hr_r=1**](https://www.hackerrank.com/iamswati13?hr_r=1)""")
-    st.markdown("""[![Foo](https://img.icons8.com/windows/25/000000/kaggle.png)](https://www.kaggle.com/swatigulati)[ **kaggle.com/swatigulati**](https://www.kaggle.com/swatigulati)""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/youtube-play.png)](https://www.youtube.com/channel/UCA56kadLYGQj7DKbQaxsvdQ)[ **youtube.com/channel/UCA56kadLYGQj7DKbQaxsvdQ**](https://www.youtube.com/channel/UCA56kadLYGQj7DKbQaxsvdQ)""")
+    
     
