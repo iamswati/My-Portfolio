@@ -64,14 +64,14 @@ elif choice == 'About':
     
     st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute (NSTI), under DGT (MSDE, India) & in collaboration with IBM</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 08/2021<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
     st.markdown('''
-- **Web Designing -** HTML, CSS, DBMS, PHP, Python
-- **Web Development -** Bootstrap, Cloud Computing (AWS and IBM Cloud)
+- **Web Designing -** HTML 5, CSS 3, DBMS, PHP 7, Python 3.9
+- **Web Development -** Bootstrap 5, Cloud Computing (AWS and IBM Cloud)
 - **Business Data Analytics -** Power BI, Excel, EDA, Python Libraries for Analytics point and Model Building''')
 
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>Business Analytics</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>Business Analytics Masters</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>iNeuron.ai</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>06/2021 - 11/2021", unsafe_allow_html=True)
     st.markdown("""- Detailed **Business Analytics** course, learned **Python Core, Power BI, Tableau, Advanced Excel and Statistics** to give me the most competitive edge
@@ -86,7 +86,7 @@ elif choice == 'About':
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Bachelor's Degree</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2019 - 01/2022", unsafe_allow_html=True)
-    st.markdown("""- Result Awaited""")
+#     st.markdown("""- Result Awaited""")
 
     st.markdown("---")
 
@@ -95,16 +95,20 @@ elif choice == 'About':
     - **Artificial Intelligence(AI)**
     - **Data Analysis**
     - **Deep Learning**
+    - **Machine Learning**
     - **Cloud Computing**
     - **Algorithms**
     
 * **Tools & Technologies**
-    - **Python**
+    - **Python 3.9**
     - **Power BI**
-    - **HTML5**
-    - **CSS3**
-    - **Bootstrap**
+    - **HTML 5**
+    - **CSS 3**
+    - **JavaScript**
+    - **Bootstrap 5**
+    - **PHP 7**
     - **SQL**
+    - **DBeaver**
     - **MongoDB**
     - **Git**
     - **AWS**
@@ -120,7 +124,7 @@ elif choice == 'About':
 
     st.markdown("<h2 style='text-align: center; color: black;'>Achievement</h2>", unsafe_allow_html=True)
     
-    st.markdown("<h5 style='color: darkblue;'>1. Achieved 9th(84.2%) All India Female Rank in Advanced Diploma Course</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='color: darkblue;'>1. Secured 9th Position with 84.2% in All India Level Examination conducted by Government of India, MSDE, DGT in the female category for Advanced Diploma in IT, Networking & Cloud Computing</h5>", unsafe_allow_html=True)
     
     st.markdown("<h5 style='color: darkblue;'>2. Got Certified in Data Analyst awarded by IBM & Think-IT</h5>", unsafe_allow_html=True)
     st.markdown("""- I got an opportunity from **Edunet Foundation** for **IBM Skillsbuild Data Camp** that's of **5 months** and offered by **IBM** and **Think-it**
@@ -137,7 +141,7 @@ elif choice == 'Internship Experience':
     
     st.markdown("<h3 style='text-align: left; color: black;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>IBM</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>10/2021 - 03/2022</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: darkblue;'>09/2021 - 02/2022</div>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
     st.markdown("""- Understand what is AI, classification of AI, Applications of AI and latest market trends
     - Build **Design Thinking AI Project** and its **Architecture**
@@ -156,7 +160,7 @@ elif choice == 'Internship Experience':
     st.markdown("<h4 style='text-align: left; color: darkblue;'>The Sparks Foundation</h4>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>09/2021 - 09/2021</div>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
-    st.markdown("""- Completed many **TASKS** provided by TSF
+    st.markdown("""- Completed many **TASKS** provided by TSF:
     - **TASK 1 -** Predict the optimum number of clusters and represent it visually using Unsupervised ML algorithms
     - **TASK 2 -** Predict the percentage of a student based on the no. of study hours Supervised ML algorithms
     - **TASK 3 -** Create the Decision Tree classifier and visualize it graphically
