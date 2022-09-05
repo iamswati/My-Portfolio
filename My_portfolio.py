@@ -141,7 +141,7 @@ elif choice == 'Internship Experience':
     
     st.markdown("<h3 style='text-align: left; color: black;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>IBM</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>09/2021 - 03/2022</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: darkblue;'>09/2021 - 02/2022</div>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
     st.markdown("""- Understand what is AI, classification of AI, Applications of AI and latest market trends
     - Build **Design Thinking AI Project** and its **Architecture**
