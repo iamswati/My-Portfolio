@@ -86,7 +86,8 @@ elif choice == 'About':
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Bachelor's Degree</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2019 - 01/2022", unsafe_allow_html=True)
-#     st.markdown("""- Result Awaited""")
+    
+    st.markdown("""- **Major Elective -** Linear Programming; Probability And Statistics""")
 
     st.markdown("---")
 
