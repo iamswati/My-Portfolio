@@ -12,7 +12,7 @@ next = st.sidebar.button('Next on list')
 
 # will use this list and next button to increment page, MUST BE in the SAME order
 # as the list passed to the radio button
-new_choice = ['Home','About','Internship Experience','Projects', 'Digital Badges & Certificates', 'Resume', 'Contact']
+new_choice = ['Home','About','Work Experience','Projects', 'Digital Badges & Certificates', 'Resume', 'Contact']
 
 # This is what makes this work, check directory for a pickled file that contains
 # the index of the page you want displayed, if it exists, then you pick up where the
@@ -58,6 +58,7 @@ if choice == 'Home':
 #ABOUT
 elif choice == 'About':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>About Me</h1>", unsafe_allow_html=True)
+    
     st.markdown("<h4 style='text-align: center; color: black;'>Dedicated and enthusiastic IT trainer with significant experience in cutting-edge technologies and instructional techniques</h1>", unsafe_allow_html=True)
     
     st.markdown("---")
@@ -66,6 +67,8 @@ elif choice == 'About':
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University (IGNOU)</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2023 - 01/2025<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
+    st.markdown("""
+- **Major Elective -** Data Structures and Algorathms, Discrete Mathematics, Software Engineering""")
     
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
