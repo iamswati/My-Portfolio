@@ -37,7 +37,7 @@ if next:
         next_clicked = 0 # go back to the beginning i.e. homepage
 
 # create your radio button with the index that we loaded
-choice = st.sidebar.radio("Go to:",('Home','About','Internship Experience','Projects', 'Digital Badges & Certificates', 'Resume', 'Contact'), index=next_clicked)
+choice = st.sidebar.radio("Go to:",('Home', 'About', 'Work Experience', 'Projects', 'Digital Badges & Certificates', 'Resume', 'Contact'), index=next_clicked)
 
 # pickle the index associated with the value, to keep track if the radio button has been used
 pkle.dump(new_choice.index(choice), open('next.p', 'wb'))
@@ -52,17 +52,21 @@ if choice == 'Home':
     # st.markdown("<div style='text-align: center;'><img src='/img/photo.png' width='175' height='175'></div>", unsafe_allow_html=True)
     
     st.markdown("""<h1 style='text-align: center; color: darkblue;'>Hi👋, I'm Swati Gulati 😊</h1>""", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: center; color: black;'>Data Analyst | Web Developer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center; color: black;'>IT Technologist Trainer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
 
 
 #ABOUT
 elif choice == 'About':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>About Me</h1>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: center; color: black;'>An enthusiastic data analyst, python programmer with a good knowledge of SQL, Excel, work on different projects like COVID-19 Data Analysis, etc.</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center; color: black;'>Dedicated and enthusiastic IT trainer with significant experience in cutting-edge technologies and instructional techniques</h1>", unsafe_allow_html=True)
     
     st.markdown("---")
     
     st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University (IGNOU)</h4>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>01/2023 - 01/2025<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
+    
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
@@ -94,7 +98,7 @@ elif choice == 'About':
     st.markdown("<h2 style='text-align: center; color: black;'>Skills</h2>", unsafe_allow_html=True)
     st.markdown("""- **Industry Knowledge**
     - **Artificial Intelligence(AI)**
-    - **Data Analysis**
+    - **Data Analytics**
     - **Deep Learning**
     - **Machine Learning**
     - **Cloud Computing**
@@ -106,6 +110,7 @@ elif choice == 'About':
     - **HTML 5**
     - **CSS 3**
     - **JavaScript**
+    - **Django**
     - **Bootstrap 5**
     - **PHP 7**
     - **SQL**
@@ -134,11 +139,25 @@ elif choice == 'About':
 - These projects gave me exposure to industry-level working standards and helped me to learn a lot of things while doing my project""")
    
 
-# INTERNSHIP EXPERIENCE
-elif choice == 'Internship Experience':
-    st.markdown("<h1 style='text-align: center; color: darkblue;'>Internship Experience</h1>", unsafe_allow_html=True)
+# WORK EXPERIENCE
+elif choice == 'Work Experience':
+    st.markdown("<h1 style='text-align: center; color: darkblue;'>Work Experience</h1>", unsafe_allow_html=True)
     
     st.markdown("---")
+
+    st.markdown("<h3 style='text-align: left; color: black;'>Subject Matter Expert</h3>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>Edunet Foundation</h4>", unsafe_allow_html=True)  
+    st.markdown("<div style='color: darkblue;'>09/2022 - Present</div>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: gray;'>Certified by the Great Place To Work®, an organization that works with Top Global Corporations & Indian Government</h4>", unsafe_allow_html=True)
+    st.markdown("<div style='color: darkblue;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
+    st.markdown("""
+- Conveyed through pre-defined course materials & content via **webinars, virtual classrooms**, and **in-person** lectures in technical skill development programs.
+- End-to-end creation of the highest quality based on the most recent technologies.
+- Confronting technological problems, project development, and implementation.
+- **IBM SkillsBuild Projects:** https://skillsbuild.edunetworld.com/internship-program/
+""")
+
+    st.markdown("***")
     
     st.markdown("<h3 style='text-align: left; color: black;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>IBM</h4>", unsafe_allow_html=True)
@@ -263,6 +282,7 @@ elif choice == 'Projects':
 
 #DIGITAL BADGES & CERTIFICATES
 elif choice == 'Digital Badges & Certificates':
+    
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Digital Badges & Certificates</h1>", unsafe_allow_html=True)
     st.markdown("<div><h4 style='text-align: left; colour: darkblue;'>Earned several Digital Badges & Certificates from HackerRank, IBM SkillsBuild, Udemy, etc.</h4></div>", unsafe_allow_html=True)
 
@@ -301,19 +321,20 @@ elif choice == 'Digital Badges & Certificates':
 elif choice == 'Resume':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Resume</h1>", unsafe_allow_html=True)
 
-    st.markdown("<div><h4 style='text-align: left; colour: darkblue;'><a href='https://iamswati.github.io/Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
+    st.markdown("<div><h4 style='text-align: left; colour: darkblue;'><a href='https://iamswati.github.io/Swatis_Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
     
 
 #CONTACT
 elif choice == 'Contact':
     
     st.markdown("<h1 style='text-align: center; color: darkblue;'>Contact</h1>", unsafe_allow_html=True)
+    
     st.markdown("""[![Foo](https://img.icons8.com/external-kiranshastry-solid-kiranshastry/25/000000/external-email-advertising-kiranshastry-solid-kiranshastry-1.png)](sg131019@gmail.com)[ **sg131019@gmail.com**](sg131019@gmail.com)""")
     st.markdown("""![Foo](https://img.icons8.com/external-those-icons-fill-those-icons/25/000000/external-mobile-phone-mobile-telephone-those-icons-fill-those-icons-4.png) **+919306979702**""")
-    st.markdown("""![Foo](https://img.icons8.com/material-rounded/25/000000/marker.png) **Ambala, India**""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/linkedin.png)](https://www.linkedin.com/in/iamswatigulati/)[ **linkedin.com/in/iamswatigulati**](https://www.linkedin.com/in/iamswatigulati/)""")
+    st.markdown("""![Foo](https://img.icons8.com/material-rounded/25/000000/marker.png) **Delhi, India**""")
+    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/linkedin.png)](https://www.linkedin.com/in/iamswatigulati/)[ **iamswatigulati**](https://www.linkedin.com/in/iamswatigulati/)""")
     st.markdown("""![Foo](https://img.icons8.com/ios-glyphs/25/000000/skype.png) **live:.cid.a9e896b0474b62f0**""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/github.png)](https://github.com/iamswati)[ **github.com/iamswati**](https://github.com/iamswati)""")
+    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/github.png)](https://github.com/iamswati)[ **iamswati**](https://github.com/iamswati)""")
     st.markdown("""[![Foo](https://img.icons8.com/windows/25/000000/hackerrank.png)](https://www.hackerrank.com/iamswati13?hr_r=1)[ **hackerrank.com/iamswati13?hr_r=1**](https://www.hackerrank.com/iamswati13?hr_r=1)""")
     
     
