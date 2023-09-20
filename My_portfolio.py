@@ -141,7 +141,8 @@ elif choice == 'About':
     st.markdown("""- I got an opportunity from **Edunet Foundation** for **IBM Skillsbuild Data Camp** that's of **5 months** and offered by **IBM** and **Think-it**
 - I learned a lot of things during this camp and got exposure to new things as I worked on 2-mini projects and one team project based on **COVID-19 Data**
 - From this camp, I learned many things about **Data Visualization, Data Science, and Machine Learning**
-- These projects gave me exposure to industry-level working standards and helped me to learn a lot of things while doing my project""")
+- These projects gave me exposure to industry-level working standards and helped me to learn a lot of things while doing my project
+- **LinkenIn Post:** https://www.linkedin.com/feed/update/urn:li:activity:6798913910591295488/""")
    
 
 # WORK EXPERIENCE
@@ -152,7 +153,7 @@ elif choice == 'Work Experience':
 
     st.markdown("<h3 style='text-align: left; color: black;'>Subject Matter Expert</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Edunet Foundation</h4>", unsafe_allow_html=True)  
-    st.markdown("<div style='color: darkblue;'>09/2022 - Present</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: darkblue;'>09/2022 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: left; color: gray;'>Certified by the Great Place To Work®, an organization that works with Top Global Corporations & Indian Government</h6>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
     st.markdown("""
@@ -167,7 +168,7 @@ elif choice == 'Work Experience':
     st.markdown("<h3 style='text-align: left; color: black;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>IBM</h4>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>09/2021 - 02/2022</div>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: darkblue;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
     st.markdown("""- Understand what is AI, classification of AI, Applications of AI and latest market trends
     - Build **Design Thinking AI Project** and its **Architecture**
     - Perform **Exploratory Data Analysis (EDA)** with tools like Python and relevant packages
@@ -177,7 +178,8 @@ elif choice == 'Work Experience':
     - **Prepare reports** for effectively communicating trends, patterns, and predictions using relevant data
 
 - Check out my **GitHub repo**: https://github.com/iamswati/AI-Based-Brain-Tumor-Detection
-- **Project Flow Chart:** https://drive.google.com/file/d/18S6yXmKtkfr5v3C8LKWl8W3N6rHzYXkW/view""")
+- **Project Flow Chart:** https://drive.google.com/file/d/18S6yXmKtkfr5v3C8LKWl8W3N6rHzYXkW/view
+- **LinkedIn Post:** https://www.linkedin.com/feed/update/urn:li:activity:6947782401255186432/""")
 
     st.markdown("***")
 
