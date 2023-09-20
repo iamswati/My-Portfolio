@@ -66,9 +66,9 @@ elif choice == 'About':
     st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University (IGNOU)</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>01/2023 - 01/2025<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: left; color: darkblue;'>01/2023 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
     st.markdown("""
-- **Major Elective -** Data Structures and Algorathms, Discrete Mathematics, Software Engineering""")
+- **Major Elective -** Data Structures and Algorithms, Discrete Mathematics, Software Engineering""")
     
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
@@ -99,7 +99,8 @@ elif choice == 'About':
     st.markdown("---")
 
     st.markdown("<h2 style='text-align: center; color: black;'>Skills</h2>", unsafe_allow_html=True)
-    st.markdown("""- **Industry Knowledge**
+    st.markdown("""- **IT Trainer**
+- **Industry Knowledge**
     - **Artificial Intelligence(AI)**
     - **Data Analytics**
     - **Deep Learning**
@@ -107,7 +108,7 @@ elif choice == 'About':
     - **Cloud Computing**
     - **Algorithms**
     
-* **Tools & Technologies**
+- **Tools & Technologies**
     - **Python 3.9**
     - **Power BI**
     - **HTML 5**
@@ -124,10 +125,11 @@ elif choice == 'About':
     - **IBM Cloud**
     - **MS Excel**
     
-* **Interpersonal Skills**
+- **Interpersonal Skills**
     - **Communication Skills**
     - **Presentation Skills**
-    - **Flexibility & Adaptability**""")
+    - **Flexibility & Adaptability**
+    """)
 
     st.markdown("---")
 
@@ -151,7 +153,7 @@ elif choice == 'Work Experience':
     st.markdown("<h3 style='text-align: left; color: black;'>Subject Matter Expert</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Edunet Foundation</h4>", unsafe_allow_html=True)  
     st.markdown("<div style='color: darkblue;'>09/2022 - Present</div>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: gray;'>Certified by the Great Place To Work®, an organization that works with Top Global Corporations & Indian Government</h4>", unsafe_allow_html=True)
+    st.markdown("<h6 style='text-align: left; color: gray;'>Certified by the Great Place To Work®, an organization that works with Top Global Corporations & Indian Government</h6>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
     st.markdown("""
 - Conveyed through pre-defined course materials & content via **webinars, virtual classrooms**, and **in-person** lectures in technical skill development programs.
