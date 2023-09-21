@@ -59,7 +59,7 @@ if choice == 'Home':
 elif choice == 'About':
     st.markdown("<h1 style='text-align: center; color: darkblue;'>About Me</h1>", unsafe_allow_html=True)
     
-    st.markdown("<h4 style='text-align: center; color: black;'>Dedicated and enthusiastic IT trainer with significant experience in cutting-edge technologies and instructional techniques</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center;'>Dedicated and enthusiastic IT trainer with significant experience in cutting-edge technologies and instructional techniques</h1>", unsafe_allow_html=True)
     
     st.markdown("---")
     
