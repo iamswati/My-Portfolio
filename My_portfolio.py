@@ -51,26 +51,26 @@ if choice == 'Home':
     # st.markdown("""![Foo](D:/My Portfolio/my_portfolio/img/photo.png)""")
     # st.markdown("<div style='text-align: center;'><img src='/img/photo.png' width='175' height='175'></div>", unsafe_allow_html=True)
     
-    st.markdown("""<h1 style='text-align: center; color: darkblue;'>Hi👋, I'm Swati Gulati 😊</h1>""", unsafe_allow_html=True)
+    st.markdown("""<h1 style='text-align: center; color: #02fa6e;'>Hi👋, I'm Swati Gulati 😊</h1>""", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: center;'>IT Technologist Trainer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
 
 
 #ABOUT
 elif choice == 'About':
-    st.markdown("<h1 style='text-align: center; color: darkblue;'>About Me</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>About Me</h1>", unsafe_allow_html=True)
     
     st.markdown("<h4 style='text-align: center;'>Dedicated and enthusiastic IT trainer with significant experience in cutting-edge technologies and instructional techniques</h1>", unsafe_allow_html=True)
     
     st.markdown("---")
     
     st.markdown("<h2 style='text-align: center; color: #b8f224;'>Education</h2>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>1. Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: #02faac;'>1. Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left;'>Indira Gandhi National Open University (IGNOU)</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2023 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
     st.markdown("""
 - **Major Elective -** Data Structures and Algorithms, Discrete Mathematics, Software Engineering""")
     
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>2. Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: #02faac;'>2. Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
     st.markdown('''
@@ -78,7 +78,7 @@ elif choice == 'About':
 - **Web Development -** Bootstrap 5, Cloud Computing (AWS and IBM Cloud)
 - **Business Data Analytics -** Power BI, Excel, EDA, Python Libraries for Analytics point and Model Building''')
 
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>3. Business Analytics Masters</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: #02faac;'>3. Business Analytics Masters</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left;'>iNeuron.ai</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>06/2021 - 11/2021", unsafe_allow_html=True)
     st.markdown("""- Detailed **Business Analytics** course, learned **Python Core, Power BI, Tableau, Advanced Excel and Statistics** to give me the most competitive edge
@@ -90,7 +90,7 @@ elif choice == 'About':
 - **Power BI**
 """)
     
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>4. Bachelor's Degree</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: #02faac;'>4. Bachelor's Degree</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2019 - 01/2022", unsafe_allow_html=True)
     
@@ -135,9 +135,9 @@ elif choice == 'About':
 
     st.markdown("<h2 style='text-align: center; color: #b8f224;'>Achievement</h2>", unsafe_allow_html=True)
     
-    st.markdown("<h5 style='color: darkblue;'>1. Secured 9th Position with 84.2% in All India Level Examination conducted by Government of India, MSDE, DGT in the female category for Advanced Diploma in IT, Networking & Cloud Computing</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='color: #02faac;'>1. Secured 9th Position with 84.2% in All India Level Examination conducted by Government of India, MSDE, DGT in the female category for Advanced Diploma in IT, Networking & Cloud Computing</h5>", unsafe_allow_html=True)
     
-    st.markdown("<h5 style='color: darkblue;'>2. Got Certified in Data Analyst awarded by IBM & Think-IT</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='color: #02faac;'>2. Got Certified in Data Analyst awarded by IBM & Think-IT</h5>", unsafe_allow_html=True)
     st.markdown("""- I got an opportunity from **Edunet Foundation** for **IBM Skillsbuild Data Camp** that's of **5 months** and offered by **IBM** and **Think-it**
 - I learned a lot of things during this camp and got exposure to new things as I worked on 2-mini projects and one team project based on **COVID-19 Data**
 - From this camp, I learned many things about **Data Visualization, Data Science, and Machine Learning**
@@ -147,15 +147,15 @@ elif choice == 'About':
 
 # WORK EXPERIENCE
 elif choice == 'Work Experience':
-    st.markdown("<h1 style='text-align: center; color: darkblue;'>Work Experience</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Work Experience</h1>", unsafe_allow_html=True)
     
     st.markdown("---")
 
     st.markdown("<h3 style='text-align: left; color: #b8f224;'>Subject Matter Expert</h3>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>Edunet Foundation</h4>", unsafe_allow_html=True)  
+    st.markdown("<h4 style='text-align: left; color: #02faac;'>Edunet Foundation</h4>", unsafe_allow_html=True)  
     st.markdown("<div style='color: darkblue;'>09/2022 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: left; color: gray;'>Certified by the Great Place To Work®, an organization that works with Top Global Corporations & Indian Government</h6>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: gray;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
     st.markdown("""
 - Conveyed through pre-defined course materials & content via **webinars, virtual classrooms**, and **in-person** lectures in technical skill development programs.
 - End-to-end creation of the highest quality based on the most recent technologies.
@@ -166,10 +166,10 @@ elif choice == 'Work Experience':
     st.markdown("***")
     
     st.markdown("<h3 style='text-align: left; color: #b8f224;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>IBM</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: #02faac;'>IBM</h4>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>09/2021 - 02/2022</div>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
-    st.markdown("""- Understand what is AI, classification of AI, Applications of AI and latest market trends
+    st.markdown("<div style='color: gray;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
+    st.markdown("""- Understand what is AI, classification of AI, Applications of AI, and latest market trends
     - Build **Design Thinking AI Project** and its **Architecture**
     - Perform **Exploratory Data Analysis (EDA)** with tools like Python and relevant packages
     - Build **Machine Learning Models** to develop new era AI applications
@@ -184,12 +184,12 @@ elif choice == 'Work Experience':
     st.markdown("***")
 
     st.write("""<h3 style='text-align: left; color: #b8f224;'>Data Science & Business Analytics Intern</h3>""", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>The Sparks Foundation</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: #02faac;'>The Sparks Foundation</h4>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>09/2021 - 09/2021</div>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
+    st.markdown("<div style='color: gray;'>Achievements/Tasks</div>", unsafe_allow_html=True)
     st.markdown("""- Completed many **TASKS** provided by TSF:
     - **TASK 1 -** Predict the optimum number of clusters and represent it visually using Unsupervised ML algorithms
-    - **TASK 2 -** Predict the percentage of a student based on the no. of study hours Supervised ML algorithms
+    - **TASK 2 -** Predict the percentage of a student based on the number of study hours Supervised ML algorithms
     - **TASK 3 -** Create the Decision Tree classifier and visualize it graphically
     - **TASK 4 -** Create a dashboard through Excel and find out weak areas where you can work to make more profit
     
@@ -199,7 +199,7 @@ elif choice == 'Work Experience':
 
 #PROJECTS
 elif choice == 'Projects':
-    st.markdown("<h1 style='text-align: center; color: darkblue;'>Projects</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Projects</h1>", unsafe_allow_html=True)
 
     st.markdown("---")
     
@@ -290,7 +290,7 @@ elif choice == 'Projects':
 #DIGITAL BADGES & CERTIFICATES
 elif choice == 'Digital Badges & Certificates':
     
-    st.markdown("<h1 style='text-align: center; color: darkblue;'>Digital Badges & Certificates</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Digital Badges & Certificates</h1>", unsafe_allow_html=True)
     st.markdown("<div><h4 style='text-align: left; colour: darkblue;'>Earned several Digital Badges & Certificates from HackerRank, IBM SkillsBuild, Udemy, etc.</h4></div>", unsafe_allow_html=True)
 
     st.markdown("""---""")
@@ -326,7 +326,7 @@ elif choice == 'Digital Badges & Certificates':
 
 #RESUME
 elif choice == 'Resume':
-    st.markdown("<h1 style='text-align: center; color: darkblue;'>Resume</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Resume</h1>", unsafe_allow_html=True)
 
     st.markdown("<div><h4 style='text-align: left; colour: darkblue;'><a href='https://iamswati.github.io/Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
     
@@ -334,7 +334,7 @@ elif choice == 'Resume':
 #CONTACT
 elif choice == 'Contact':
     
-    st.markdown("<h1 style='text-align: center; color: darkblue;'>Contact</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Contact</h1>", unsafe_allow_html=True)
     
     st.markdown("""[![Foo](https://img.icons8.com/external-kiranshastry-solid-kiranshastry/25/000000/external-email-advertising-kiranshastry-solid-kiranshastry-1.png)](sg131019@gmail.com)[ **sg131019@gmail.com**](sg131019@gmail.com)""")
     st.markdown("""![Foo](https://img.icons8.com/external-those-icons-fill-those-icons/25/000000/external-mobile-phone-mobile-telephone-those-icons-fill-those-icons-4.png) **+919306979702**""")
