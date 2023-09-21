@@ -52,7 +52,7 @@ if choice == 'Home':
     # st.markdown("<div style='text-align: center;'><img src='/img/photo.png' width='175' height='175'></div>", unsafe_allow_html=True)
     
     st.markdown("""<h1 style='text-align: center; color: darkblue;'>Hi👋, I'm Swati Gulati 😊</h1>""", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: center; color: black;'>IT Technologist Trainer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center;'>IT Technologist Trainer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
 
 
 #ABOUT
@@ -63,23 +63,23 @@ elif choice == 'About':
     
     st.markdown("---")
     
-    st.markdown("<h2 style='text-align: center; color: black;'>Education</h2>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University (IGNOU)</h4>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #b8f224;'>Education</h2>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>1. Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left;'>Indira Gandhi National Open University (IGNOU)</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2023 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
     st.markdown("""
 - **Major Elective -** Data Structures and Algorithms, Discrete Mathematics, Software Engineering""")
     
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: black;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>2. Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
     st.markdown('''
 - **Web Designing -** HTML 5, CSS 3, DBMS, PHP 7, Python 3.9
 - **Web Development -** Bootstrap 5, Cloud Computing (AWS and IBM Cloud)
 - **Business Data Analytics -** Power BI, Excel, EDA, Python Libraries for Analytics point and Model Building''')
 
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>Business Analytics Masters</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: black;'>iNeuron.ai</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>3. Business Analytics Masters</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left;'>iNeuron.ai</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>06/2021 - 11/2021", unsafe_allow_html=True)
     st.markdown("""- Detailed **Business Analytics** course, learned **Python Core, Power BI, Tableau, Advanced Excel and Statistics** to give me the most competitive edge
 - **Python -** Python Core; **Libraries:** Pandas, Numpy, Seaborn, etc.
@@ -90,15 +90,15 @@ elif choice == 'About':
 - **Power BI**
 """)
     
-    st.markdown("<h4 style='text-align: left; color: darkblue;'>Bachelor's Degree</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: black;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left; color: darkblue;'>4. Bachelor's Degree</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: left;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>01/2019 - 01/2022", unsafe_allow_html=True)
     
     st.markdown("""- **Major Elective -** Linear Programming; Probability And Statistics""")
 
     st.markdown("---")
 
-    st.markdown("<h2 style='text-align: center; color: black;'>Skills</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #b8f224;'>Skills</h2>", unsafe_allow_html=True)
     st.markdown("""- **IT Trainer**
 - **Industry Knowledge**
     - **Artificial Intelligence(AI)**
@@ -133,7 +133,7 @@ elif choice == 'About':
 
     st.markdown("---")
 
-    st.markdown("<h2 style='text-align: center; color: black;'>Achievement</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #b8f224;'>Achievement</h2>", unsafe_allow_html=True)
     
     st.markdown("<h5 style='color: darkblue;'>1. Secured 9th Position with 84.2% in All India Level Examination conducted by Government of India, MSDE, DGT in the female category for Advanced Diploma in IT, Networking & Cloud Computing</h5>", unsafe_allow_html=True)
     
@@ -151,7 +151,7 @@ elif choice == 'Work Experience':
     
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Subject Matter Expert</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Subject Matter Expert</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>Edunet Foundation</h4>", unsafe_allow_html=True)  
     st.markdown("<div style='color: darkblue;'>09/2022 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: left; color: gray;'>Certified by the Great Place To Work®, an organization that works with Top Global Corporations & Indian Government</h6>", unsafe_allow_html=True)
@@ -165,7 +165,7 @@ elif choice == 'Work Experience':
 
     st.markdown("***")
     
-    st.markdown("<h3 style='text-align: left; color: black;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>IBM</h4>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>09/2021 - 02/2022</div>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
@@ -183,7 +183,7 @@ elif choice == 'Work Experience':
 
     st.markdown("***")
 
-    st.write("""<h3 style='text-align: left; color: black;'>Data Science & Business Analytics Intern</h3>""", unsafe_allow_html=True)
+    st.write("""<h3 style='text-align: left; color: #b8f224;'>Data Science & Business Analytics Intern</h3>""", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: left; color: darkblue;'>The Sparks Foundation</h4>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>09/2021 - 09/2021</div>", unsafe_allow_html=True)
     st.markdown("<div style='color: darkblue;'>Achievements/Tasks</div>", unsafe_allow_html=True)
@@ -203,7 +203,7 @@ elif choice == 'Projects':
 
     st.markdown("---")
     
-    st.markdown("<h3 style='text-align: left; color: black;'>AI Based Brain Tumor Detection</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>AI Based Brain Tumor Detection</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Feb 2022 - Feb 2022</div>", unsafe_allow_html=True)
     st.markdown("""- This problem statement was given by **IBM Mentor** during my **Internship in Artificial Intelligence at IBM**. The main objective of this project:
     - To understand the Image data
@@ -214,20 +214,20 @@ elif choice == 'Projects':
 
     st.markdown("---")
     
-    st.markdown("<h3 style='text-align: left; color: black;'>EDA on Loan Payments Data</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>EDA on Loan Payments Data</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Sep 2021 - Oct 2021</div>", unsafe_allow_html=True)
     st.markdown("""- This project will perform initial Analysis and **EDA (Exploratory Data Analysis)** on Loan Payments Data""")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/eda-loan)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://iamswati.github.io/eda-loan/)""")
 
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>The Sparks Foundation - Intern</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>The Sparks Foundation - Intern</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Sep 2021</div>", unsafe_allow_html=True)
     st.markdown("[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/TheSparksFoundation-Intern)")
     
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Gold Price Prediction</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Gold Price Prediction</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Aug 2021</div>", unsafe_allow_html=True)
     st.markdown("""- The main goal of this project is to build a **Machine Learning** system that can predict gold prices based on several other stock prices
 - Obtain data insights using **Pandas**
@@ -237,7 +237,7 @@ elif choice == 'Projects':
     
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Haryana Data Analysis</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Haryana Data Analysis</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Jul 2021 - Aug 2021</div>", unsafe_allow_html=True)
     st.markdown("""- This project is about **Data Analysis on Covid-19 in Haryana state**
 - This project starts with **Exploratory Data Analysis (EDA)** for the state of Haryana, India. The data contains various features regarding the COVID-19 outbreak like Date, TotalSamples, etc""")
@@ -245,14 +245,14 @@ elif choice == 'Projects':
     
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Generate Password</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Generate Password</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Jul 2021</div>", unsafe_allow_html=True)
     st.markdown("- This project is about generating passwords using python")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Generate_Password)""")
     
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Covid-19 Data Analysis Germany</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Covid-19 Data Analysis Germany</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Feb 2021 - March 2021</div>", unsafe_allow_html=True)
     st.markdown("""- The main goal of this project is to **Analyze and Predict** the number of new cases for the country Germany in future days
 - Obtain data insights using **Pandas**
@@ -263,7 +263,7 @@ elif choice == 'Projects':
     
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Predict The Power Consumption Of Buildings</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Predict The Power Consumption Of Buildings</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>Jan 2021 - Feb 2021</div>", unsafe_allow_html=True)
     st.markdown("""You work for the city of Seattle. To achieve its goal of a carbon-neutral city in 2050, your team is taking a close interest 
     in emissions from non-residential buildings. For this, careful records were made by your agents in **2015 and 2016**. However, these surveys are
@@ -274,14 +274,14 @@ elif choice == 'Projects':
 
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Send Email</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Send Email</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>May 2020 - June 2020</div>", unsafe_allow_html=True)
     st.markdown("""- This project is about sending Emails to registered Email IDs using **Smtplib Module**""")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Send_email)""")
 
     st.markdown("---")
 
-    st.markdown("<h3 style='text-align: left; color: black;'>Send Text Message</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Send Text Message</h3>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: left; color: darkblue;'>June 2020 - July 2020</div>", unsafe_allow_html=True)
     st.markdown("""- This project is about sending text messages to the registered phone number using **FAST2SMS**""")
     st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Send_text_msg)""")
