@@ -1,347 +1,961 @@
-#IMPORT REQUIRED LIBRARIES
 import streamlit as st
-import streamlit.components as stc
-import pickle as pkle
-import os.path
+import os
+import json
 from PIL import Image
+from pathlib import Path
+from streamlit_timeline import timeline
+import base64
+from io import BytesIO
+import urllib.parse
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# PAGE CONFIGURATION & THEME
+# ═══════════════════════════════════════════════════════════════════════════════
 
-#NAVIGATION BAR
-# create a button in the side bar that will move to the next page/radio button choice
-next = st.sidebar.button('Next on list')
+st.set_page_config(
+    page_title="Swati's Portfolio",
+    page_icon="🚀",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-# will use this list and next button to increment page, MUST BE in the SAME order
-# as the list passed to the radio button
-new_choice = ['Home','About','Work Experience','Projects', 'Digital Badges & Certificates', 'Resume', 'Contact']
+# Initialize session state
+if 'gallery_page' not in st.session_state:
+    st.session_state.gallery_page = 1
 
-# This is what makes this work, check directory for a pickled file that contains
-# the index of the page you want displayed, if it exists, then you pick up where the
-#previous run through of your Streamlit Script left off,
-# if it's the first go it's just set to 0
-if os.path.isfile('next.p'):
-    next_clicked = pkle.load(open('next.p', 'rb'))
-    # check if you are at the end of the list of pages
-    if next_clicked == len(new_choice):
-        next_clicked = 0 # go back to the beginning i.e. homepage
-else:
-    next_clicked = 0 #the start
-
-# this is the second tricky bit, check to see if the person has clicked the
-# next button and increment our index tracker (next_clicked)
-if next:
-    #increment value to get to the next page
-    next_clicked = next_clicked +1
-
-    # check if you are at the end of the list of pages again
-    if next_clicked == len(new_choice):
-        next_clicked = 0 # go back to the beginning i.e. homepage
-
-# create your radio button with the index that we loaded
-choice = st.sidebar.radio("Go to:",('Home', 'About', 'Work Experience', 'Projects', 'Digital Badges & Certificates', 'Resume', 'Contact'), index=next_clicked)
-
-# pickle the index associated with the value, to keep track if the radio button has been used
-pkle.dump(new_choice.index(choice), open('next.p', 'wb'))
-
-
-#HOME
-if choice == 'Home':
-
-    # image = Image.open('D:\My Portfolio\my_portfolio\photo.png')
-    # st.image(image, width = 150)
-    # st.markdown("""![Foo](D:/My Portfolio/my_portfolio/img/photo.png)""")
-    # st.markdown("<div style='text-align: center;'><img src='/img/photo.png' width='175' height='175'></div>", unsafe_allow_html=True)
-    
-    st.markdown("""<h1 style='text-align: center; color: #02fa6e;'>Hi👋, I'm Swati Gulati 😊</h1>""", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: center;'>IT Technologist Trainer | Data Science | Self-Taught Programmer | Continuous Learner</h1>", unsafe_allow_html=True)
-
-
-#ABOUT
-elif choice == 'About':
-    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>About Me</h1>", unsafe_allow_html=True)
-    
-    st.markdown("<h4 style='text-align: center;'>Dedicated and enthusiastic IT trainer with significant experience in cutting-edge technologies and instructional techniques</h1>", unsafe_allow_html=True)
-    
-    st.markdown("---")
-    
-    st.markdown("<h2 style='text-align: center; color: #b8f224;'>Education</h2>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: #02faac;'>1. Master of Computer Application (MCA)</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left;'>Indira Gandhi National Open University (IGNOU)</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>01/2023 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
+# Advanced CSS with animations and modern design
+def inject_custom_css():
     st.markdown("""
-- **Major Elective -** Data Structures and Algorithms, Discrete Mathematics, Software Engineering""")
-    
-    st.markdown("<h4 style='text-align: left; color: #02faac;'>2. Advanced Diploma (Vocational) in IT, Networking & Cloud Computing (NSQF Level - 6)</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left;'>National Skill Training Institute (Women), DGT- MSDE, GOI & in collaboration with IBM</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>09/2019 - 03/2022<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panipat (Hr), India</span></div>", unsafe_allow_html=True)
-    st.markdown('''
-- **Web Designing -** HTML 5, CSS 3, DBMS, PHP 7, Python 3.9
-- **Web Development -** Bootstrap 5, Cloud Computing (AWS and IBM Cloud)
-- **Business Data Analytics -** Power BI, Excel, EDA, Python Libraries for Analytics point and Model Building''')
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        /* Global Variables */
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #357ABD;
+            --accent-cyan: #00D4FF;
+            --bg-dark: #0A0E27;
+            --bg-secondary: #1A1F3A;
+            --text-white: #FFFFFF;
+            --text-gray: #B8BCC8;
+            --card-bg: rgba(26, 31, 58, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Main App Styling */
+        .stApp {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-secondary) 100%);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Animated Background */
+        .stApp::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundFlow 20s ease-in-out infinite alternate;
+        }
+        
+        @keyframes backgroundFlow {
+            0% { transform: translateX(-20px) translateY(-20px); }
+            100% { transform: translateX(20px) translateY(20px); }
+        }
+        
+        /* Modern Card Styling */
+        .portfolio-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1rem 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
+        }
+        
+        .portfolio-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Interactive Headers - FIXED: Only apply gradient to text, not emojis */
+        h1 span.text-gradient, 
+        h2 span.text-gradient, 
+        h3 span.text-gradient {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Make emojis use system emoji font */
+        .emoji {
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+            background: none !important;
+            -webkit-text-fill-color: initial !important;
+        }
+        
+        /* Preserve emoji appearance in sidebar */
+        .stRadio label div {
+            font-family: 'Inter', "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+        }
+        
+        /* Skill Bars */
+        .skill-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+        
+        .skill-progress {
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            border-radius: 10px;
+            animation: fillBar 1.5s ease-out;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0%; }
+        }
+        
+        a.custom-button {
+            color: white !important;
+            }
 
-    st.markdown("<h4 style='text-align: left; color: #02faac;'>3. Business Analytics Masters</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left;'>iNeuron.ai</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>06/2021 - 11/2021", unsafe_allow_html=True)
-    st.markdown("""- Detailed **Business Analytics** course, learned **Python Core, Power BI, Tableau, Advanced Excel and Statistics** to give me the most competitive edge
-- **Python -** Python Core; **Libraries:** Pandas, Numpy, Seaborn, etc.
-- **Business Statistics -** Data Analysis, Elementary Statistics
-- **Descriptive Analytics -** EDA
-- **Predictive  Analytics -** Machine Learning & Deep Learning Models
-- **Excel -** Formulas, Linear & Growth Trend, Dollar Notation, Lookup, Statistical, Formatting, Pivot Tables, etc.
-- **Power BI**
-""")
-    
-    st.markdown("<h4 style='text-align: left; color: #02faac;'>4. Bachelor's Degree</h4>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left;'>Indira Gandhi National Open University</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>01/2019 - 01/2022", unsafe_allow_html=True)
-    
-    st.markdown("""- **Major Elective -** Linear Programming; Probability And Statistics""")
+        a.custom-button:hover {
+            color: white !important;
+            }        
 
-    st.markdown("---")
+        /* Interactive Buttons */
+        .custom-button {
+            background: linear-gradient(200deg, var(--primary-blue), var(--secondary-blue));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            padding: 12px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .custom-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        /* Gallery Grid */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(74, 144, 226, 0.8), rgba(0, 212, 255, 0.8));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Image Modal */
+        .gallery-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal:target {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 900px;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            max-height: 80vh;
+        }
+        /* FIXED: Position close button at top right of viewport */
+        .close {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 10001;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: all 0.2s ease;
+        }
+        .close:hover {
+            color: #FF4B4B;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        
+        .pagination-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .pagination-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+        
+        .pagination-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Sidebar Styling */
+        .css-1d391kg {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Timeline Styling */
+        .timeline-container {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        /* Achievement Badges */
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 5px;
+            animation: badgeGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes badgeGlow {
+            0% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
-    st.markdown("<h2 style='text-align: center; color: #b8f224;'>Skills</h2>", unsafe_allow_html=True)
-    st.markdown("""- **IT Trainer**
-- **Industry Knowledge**
-    - **Artificial Intelligence(AI)**
-    - **Data Analytics**
-    - **Deep Learning**
-    - **Machine Learning**
-    - **Cloud Computing**
-    - **Algorithms**
-    
-- **Tools & Technologies**
-    - **Python 3.9**
-    - **Power BI**
-    - **HTML 5**
-    - **CSS 3**
-    - **JavaScript**
-    - **Django**
-    - **Bootstrap 5**
-    - **PHP 7**
-    - **SQL**
-    - **DBeaver**
-    - **MongoDB**
-    - **Git**
-    - **AWS**
-    - **IBM Cloud**
-    - **MS Excel**
-    
-- **Interpersonal Skills**
-    - **Communication Skills**
-    - **Presentation Skills**
-    - **Flexibility & Adaptability**
-    """)
+# ═══════════════════════════════════════════════════════════════════════════════
+# UTILITY FUNCTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
 
-    st.markdown("---")
+def get_image_base64(image_path, max_size=None, quality=85):
+    """Load and optimize an image for web display"""
+    try:
+        img = Image.open(image_path)
+        return image_to_base64(img, quality, max_size)
+    except Exception as e:
+        st.error(f"Error loading image: {e}")
+        return None
 
-    st.markdown("<h2 style='text-align: center; color: #b8f224;'>Achievement</h2>", unsafe_allow_html=True)
-    
-    st.markdown("<h5 style='color: #02faac;'>1. Secured 9th Position with 84.2% in All India Level Examination conducted by Government of India, MSDE, DGT in the female category for Advanced Diploma in IT, Networking & Cloud Computing</h5>", unsafe_allow_html=True)
-    
-    st.markdown("<h5 style='color: #02faac;'>2. Got Certified in Data Analyst awarded by IBM & Think-IT</h5>", unsafe_allow_html=True)
-    st.markdown("""- I got an opportunity from **Edunet Foundation** for **IBM Skillsbuild Data Camp** that's of **5 months** and offered by **IBM** and **Think-it**
-- I learned a lot of things during this camp and got exposure to new things as I worked on 2-mini projects and one team project based on **COVID-19 Data**
-- From this camp, I learned many things about **Data Visualization, Data Science, and Machine Learning**
-- These projects gave me exposure to industry-level working standards and helped me to learn a lot of things while doing my project
-- **LinkenIn Post:** https://www.linkedin.com/feed/update/urn:li:activity:6798913910591295488/""")
-   
+def create_skill_bar(skill_name, percentage):
+    return f"""
+    <div style="margin: 10px 0;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span>{skill_name}</span>
+            <span>{percentage}%</span>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-progress" style="width: {percentage}%;"></div>
+        </div>
+    </div>
+    """
 
-# WORK EXPERIENCE
-elif choice == 'Work Experience':
-    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Work Experience</h1>", unsafe_allow_html=True)
-    
-    st.markdown("---")
+def create_project_card(title, description, tech_stack, link=None):
+    link_html = f'<a href="{link}" class="custom-button" target="_blank" style="color: white !important;">View Project</a>' if link else ""
+    return f"""
+     <div class="">
+        <h3>{title}</h3>
+        <p style="color: var(--text-gray); margin: 15px 0;">{description}</p>
+        <div style="margin: 15px 0;">
+            {''.join([f'<span class="badge">{tech}</span>' for tech in tech_stack])}
+        </div>
+        {link_html}
+    </div>
+    """
 
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Subject Matter Expert</h3>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: #02faac;'>Edunet Foundation</h4>", unsafe_allow_html=True)  
-    st.markdown("<div style='color: darkblue;'>09/2022 - Present<span style='text-align: right; color: darkblue;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dehradun (UK), India</span></div>", unsafe_allow_html=True)
-    st.markdown("<h6 style='text-align: left; color: gray;'>Certified by the Great Place To Work®, an organization that works with Top Global Corporations & Indian Government</h6>", unsafe_allow_html=True)
-    st.markdown("<div style='color: gray;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
+def image_to_base64(image, quality=85, max_size=None):
+    buffered = BytesIO()
+    
+    # Optimize image for web
+    if max_size:
+        width, height = image.size
+        if width > max_size or height > max_size:
+            ratio = min(max_size/width, max_size/height)
+            new_size = (int(width * ratio), int(height * ratio))
+            image = image.resize(new_size, Image.LANCZOS)
+    
+    # Save with optimization
+    image.save(buffered, format="JPEG", quality=quality, optimize=True)
+    return base64.b64encode(buffered.getvalue()).decode()
+
+def generate_thumbnail(image_path, max_size=300):
+    """Generate optimized thumbnail with lazy loading"""
+    try:
+        img = Image.open(image_path)
+        return image_to_base64(img, quality=50, max_size=max_size)
+    except Exception as e:
+        st.error(f"Error generating thumbnail: {e}")
+        return None
+
+def load_full_image(image_path):
+    """Load full image only when needed"""
+    try:
+        img = Image.open(image_path)
+        return image_to_base64(img, quality=90)
+    except Exception as e:
+        st.error(f"Error loading full image: {e}")
+        return None
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PAGE FUNCTIONS (WITH FIXED GALLERY)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def show_hero_section():
+    st.markdown('<div class="">', unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns([1, 2, 1])
+    
+    with col2:
+        # Load and display profile image
+        profile_img = get_image_base64("profile.jpeg", max_size=200)
+        
+        if profile_img:
+            st.markdown(f"""
+            <div style="width: 200px; height: 200px; border-radius: 50%; 
+                        background: linear-gradient(135deg, #4A90E2, #00D4FF);
+                        margin: 0 auto; overflow: hidden; border: 3px solid rgba(255,255,255,0.2)">
+                <img src="data:image/jpeg;base64,{profile_img}" 
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            # Fallback to emoji if image missing
+            st.markdown("""
+            <div style="width: 200px; height: 200px; border-radius: 50%; 
+                        background: linear-gradient(135deg, #4A90E2, #00D4FF);
+                        margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 80px;">👩‍💻</span>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        st.markdown("""
+            <div style="text-align: center; margin-top: 20px;">
+            <h1 style="display: block; text-align: center;">Swati Gulati</h1>
+            <h3 style="color: var(--text-gray); display: block; text-align: center;">IT Trainer | Data Science | Gen-AI</h3>
+            <p style="font-size: 1.1rem; margin: 20px 0;">
+                🚀 2+ years delivering high-impact AI, ML, and Gen-AI Programs<br>
+                📍 Delhi, India | 💼 200+ Professionals Trained
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Interactive buttons row
+        col_btn1, col_btn2, col_btn3 = st.columns(3)
+        
+        with col_btn1:
+            st.link_button("📧 Contact", "#contact-section")
+        
+        with col_btn2:
+            st.download_button(
+                "📄 Resume",
+                data=open("Swati_Gulati_Technical_Trainer_Resume.pdf", "rb").read(),
+                file_name="Swati_Gulati_Technical_Trainer_Resume.pdf",
+                mime="application/pdf"
+            )
+        
+        with col_btn3:
+            st.link_button("🔗 LinkedIn", "https://linkedin.com/in/iamswatigulati")
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+
+def show_about_skills():
     st.markdown("""
-- Conveyed through pre-defined course materials & content via **webinars, virtual classrooms**, and **in-person** lectures in technical skill development programs.
-- End-to-end creation of the highest quality based on the most recent technologies.
-- Confronting technological problems, project development, and implementation.
-- **IBM SkillsBuild Projects:** https://skillsbuild.edunetworld.com/internship-program/
-""")
-
-    st.markdown("***")
+    <h2>
+        <span class="emoji">🎯</span>
+        <span class="text-gradient">Professional Summary</span>
+    </h2>
+    """, unsafe_allow_html=True)
     
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Artificial Intelligence Intern</h3>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: #02faac;'>IBM</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>09/2021 - 02/2022</div>", unsafe_allow_html=True)
-    st.markdown("<div style='color: gray;'>Roles, Responsibilities & Achievements</div>", unsafe_allow_html=True)
-    st.markdown("""- Understand what is AI, classification of AI, Applications of AI, and latest market trends
-    - Build **Design Thinking AI Project** and its **Architecture**
-    - Perform **Exploratory Data Analysis (EDA)** with tools like Python and relevant packages
-    - Build **Machine Learning Models** to develop new era AI applications
-    - Understand what is **Deep Learning**, how to build and train Deep Learning models
-    - **Statistical tools to interpret data sets**, paying particular attention to trends and patterns that could be valuable for diagnostic and predictive analytics efforts
-    - **Prepare reports** for effectively communicating trends, patterns, and predictions using relevant data
-
-- Check out my **GitHub repo**: https://github.com/iamswati/AI-Based-Brain-Tumor-Detection
-- **Project Flow Chart:** https://drive.google.com/file/d/18S6yXmKtkfr5v3C8LKWl8W3N6rHzYXkW/view
-- **LinkedIn Post:** https://www.linkedin.com/feed/update/urn:li:activity:6947782401255186432/""")
-
-    st.markdown("***")
-
-    st.write("""<h3 style='text-align: left; color: #b8f224;'>Data Science & Business Analytics Intern</h3>""", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: left; color: #02faac;'>The Sparks Foundation</h4>", unsafe_allow_html=True)
-    st.markdown("<div style='color: darkblue;'>09/2021 - 09/2021</div>", unsafe_allow_html=True)
-    st.markdown("<div style='color: gray;'>Achievements/Tasks</div>", unsafe_allow_html=True)
-    st.markdown("""- Completed many **TASKS** provided by TSF:
-    - **TASK 1 -** Predict the optimum number of clusters and represent it visually using Unsupervised ML algorithms
-    - **TASK 2 -** Predict the percentage of a student based on the number of study hours Supervised ML algorithms
-    - **TASK 3 -** Create the Decision Tree classifier and visualize it graphically
-    - **TASK 4 -** Create a dashboard through Excel and find out weak areas where you can work to make more profit
+    st.markdown("""
+    <div class="">
+        <p style="font-size: 1.1rem; line-height: 1.6;">
+            IT Technologies Trainer with 2+ years delivering high-impact AI, ML, and Gen-AI Programs, 
+            including specialized training in Prompt Engineering Techniques. Designed and delivered 
+            technical curriculum for 200+ professionals across diverse industries. Certified Data Analyst 
+            with expertise in Gen-AI Applications and Predictive Analytics. Passionate Self-Taught Programmer 
+            and Continuous Learner focused on cutting-edge AI upskilling.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
-- Check out my **GitHub repo**: https://github.com/iamswati/TheSparksFoundation-Intern
-- **Received LoR** from The Sparks Foundation: https://truecertificates.com/verified/GM5RV7YDGB""")
-
-
-#PROJECTS
-elif choice == 'Projects':
-    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Projects</h1>", unsafe_allow_html=True)
-
-    st.markdown("---")
+    st.markdown("""
+    <h2>
+        <span class="emoji">💻</span>
+        <span class="text-gradient">Core Skills & Expertise</span>
+    </h2>
+    """, unsafe_allow_html=True)
     
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>AI Based Brain Tumor Detection</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Feb 2022 - Feb 2022</div>", unsafe_allow_html=True)
-    st.markdown("""- This problem statement was given by **IBM Mentor** during my **Internship in Artificial Intelligence at IBM**. The main objective of this project:
-    - To understand the Image data
-    - To understand the basic concept of the project
-    - To detect the right MRI scan images by using ML model
-- **Team Size:** 5""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/AI-Based-Brain-Tumor-Detection)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://nostalgic-wright-bf9840.netlify.app/)""")
-
-    st.markdown("---")
+    col1, col2 = st.columns(2)
     
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>EDA on Loan Payments Data</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Sep 2021 - Oct 2021</div>", unsafe_allow_html=True)
-    st.markdown("""- This project will perform initial Analysis and **EDA (Exploratory Data Analysis)** on Loan Payments Data""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/eda-loan)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://iamswati.github.io/eda-loan/)""")
-
-    st.markdown("---")
-
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>The Sparks Foundation - Intern</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Sep 2021</div>", unsafe_allow_html=True)
-    st.markdown("[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/TheSparksFoundation-Intern)")
+    with col1:
+        st.markdown("### Technical Skills")
+        st.markdown("""
+        <div class="">
+            {python_bar}
+            {sql_bar}
+            {htmlcss_bar}
+            {data_analysis_bar}
+            {ml_bar}
+            {prompt_bar}
+        </div>
+        """.format(
+            python_bar=create_skill_bar("Python and JavaScript", 95),
+            sql_bar=create_skill_bar("SQL", 85),
+            htmlcss_bar=create_skill_bar("HTML5/CSS3", 80),
+            data_analysis_bar=create_skill_bar("Data Analysis", 92),
+            ml_bar=create_skill_bar("Machine Learning", 88),
+            prompt_bar=create_skill_bar("Prompt Engineering", 85)
+        ), unsafe_allow_html=True)
     
-    st.markdown("---")
+    with col2:
+        st.markdown("### Tools & Platforms")
+        st.markdown("""
+        <div class="">
+            {powerbi_bar}
+            {tf_keras_bar}
+            {git_bar}
+            {cloud_bar}
+            {web_bar}
+            {msoffice_bar}
+        </div>
+        """.format(
+            powerbi_bar=create_skill_bar("Power BI", 90),
+            tf_keras_bar=create_skill_bar("TensorFlow/Keras", 88),
+            git_bar=create_skill_bar("Git/GitHub", 85),
+            cloud_bar=create_skill_bar("IBM Cloud", 80),
+            web_bar=create_skill_bar("Web Development", 75),
+            msoffice_bar=create_skill_bar("MS Office", 90)
+        ), unsafe_allow_html=True)
 
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Gold Price Prediction</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Aug 2021</div>", unsafe_allow_html=True)
-    st.markdown("""- The main goal of this project is to build a **Machine Learning** system that can predict gold prices based on several other stock prices
-- Obtain data insights using **Pandas**
-- Find the **Correlation** of the other features with GLD (gold) price
-- **Predict** the GLD (gold) price by splitting the data & evaluating the model""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/data_analysis_gold_price)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://iamswati.github.io/data_analysis_gold_price/)""")
+def show_experience_timeline():
+    st.markdown("""
+    <h2>
+        <span class="emoji">💼</span>
+        <span class="text-gradient">Professional Journey</span>
+    </h2>
+    """, unsafe_allow_html=True)
     
-    st.markdown("---")
-
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Haryana Data Analysis</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Jul 2021 - Aug 2021</div>", unsafe_allow_html=True)
-    st.markdown("""- This project is about **Data Analysis on Covid-19 in Haryana state**
-- This project starts with **Exploratory Data Analysis (EDA)** for the state of Haryana, India. The data contains various features regarding the COVID-19 outbreak like Date, TotalSamples, etc""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Haryana_data_analysis)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://iamswati.github.io/Haryana_data_analysis/)""")
+    # Career timeline data
+    timeline_data = {
+        "events": [
+            {
+                "start_date": {"year": "2022", "month": "9"},
+                "end_date": {"year": "2025", "month": "6"},
+                "text": {
+                    "headline": "Subject Matter Expert (IT Training)",
+                    "text": "<b>Edunet Foundation</b><br>• Certified by the Great Place To Work®, an organization that works with Top Global Corporations & the Indian Government.<br>• Delivered AI/Data Science Courses/Workshops for IBM and Microsoft programs.<br>• Created technical curriculum for 200+ professionals."
+                },
+                "background": {"color": "#2B2C36"}
+            },
+            {
+                "start_date": {"year": "2021", "month": "9"},
+                "end_date": {"year": "2022", "month": "2"},
+                "text": {
+                    "headline": "Artificial Intelligence Intern",
+                    "text": "<b>IBM India Pvt. Ltd.</b><br>• Developed brain-tumor detection system (92% accuracy).<br>• Led 5-member AI team.<br>• Created reusable AI knowledge base."
+                },
+                "background": {"color": "#262730"}
+            }
+        ]
+    }
     
-    st.markdown("---")
+    # Render the timeline
+    timeline(json.dumps(timeline_data), height=400)
 
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Generate Password</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Jul 2021</div>", unsafe_allow_html=True)
-    st.markdown("- This project is about generating passwords using python")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Generate_Password)""")
+def show_projects_showcase():
+    st.markdown("""
+    <h2>
+        <span class="emoji">🛠️</span>
+        <span class="text-gradient">Featured Projects</span>
+    </h2>
+    """, unsafe_allow_html=True)
     
-    st.markdown("---")
-
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Covid-19 Data Analysis Germany</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Feb 2021 - March 2021</div>", unsafe_allow_html=True)
-    st.markdown("""- The main goal of this project is to **Analyze and Predict** the number of new cases for the country Germany in future days
-- Obtain data insights using **Pandas**
-- Cleaning the data with appropriate techniques
-- Performing **Exploratory Data Analysis (EDA)** on the data to get better insights
-- **Modeling** the data with the various models with appropriate feature selection techniques""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/covid_19_project)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://iamswati.github.io/covid_19_project/)""")
+    # Project cards with enhanced styling
+    projects = [
+        {
+            "title": "AI-Based Brain Tumor Detection System",
+            "description": "Developed an end-to-end medical-image AI solution with Python, TensorFlow/Keras, OpenCV, and CNNs achieving 92% accuracy. Built robust preprocessing pipelines and clinical interface.",
+            "tech_stack": ["Python", "TensorFlow", "OpenCV", "CNNs", "Medical Imaging"],
+            "link": "https://nostalgic-wright-bf9840.netlify.app/"
+        },
+        {
+            "title": "COVID-19 Data Analysis & Prediction",
+            "description": "Analyzed COVID-19 datasets using Python, Pandas, and statistical methods to create predictive models with 85% accuracy for Germany. Developed interactive visualizations with Matplotlib/Seaborn.",
+            "tech_stack": ["Python", "Pandas", "Matplotlib", "Statistical Modeling"],
+            "link": "https://iamswati.github.io/covid_19_project/"
+        },
+        {
+            "title": "Gold Price Prediction",
+            "description": "Project is to build a Machine Learning system that can predict gold prices based on several other stock prices. Find the Correlation of the other features with GLD (gold) price and predict it",
+            "tech_stack": ["Time Series Data, Pedictive Analysis"],
+            "link": "https://iamswati.github.io/data_analysis_gold_price/"
+        },
+        {
+            "title": "EDA on Loan Payments Data",
+            "description": "Analyzed initial Analysis and EDA (Exploratory Data Analysis) on Loan Payments Data.",
+            "tech_stack": ["Data Analysis, Data Visulaization"],
+            "link": "https://iamswati.github.io/eda-loan/"
+        },
+         {
+            "title": "Send Text Message(FAST2SMS)",
+            "description": "It is about sending text messages to the registered phone number using FAST2SMS.",
+            "tech_stack": ["Python Project"],
+            "link": "https://github.com/iamswati/Send_text_msg"
+        }
+    ]
     
-    st.markdown("---")
+    for project in projects:
+        st.markdown(create_project_card(**project), unsafe_allow_html=True)
 
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Predict The Power Consumption Of Buildings</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>Jan 2021 - Feb 2021</div>", unsafe_allow_html=True)
-    st.markdown("""You work for the city of Seattle. To achieve its goal of a carbon-neutral city in 2050, your team is taking a close interest 
-    in emissions from non-residential buildings. For this, careful records were made by your agents in **2015 and 2016**. However, these surveys are
-     expensive to obtain, and from those already done, you want to try to **predict** the emissions of buildings whose emissions have not yet been 
-     measured. Two measures interest you: CO2 emissions and total energy consumption. You also want to evaluate the interest in the emission 
-     prediction of the ENERGYSTAR Score(which is complicated to calculate)with the approach currently used by your team""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Seattle_data_analysis)[![Foo](https://img.icons8.com/color/35/000000/chrome--v1.png)](https://iamswati.github.io/Seattle_data_analysis/)""")
-
-    st.markdown("---")
-
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Send Email</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>May 2020 - June 2020</div>", unsafe_allow_html=True)
-    st.markdown("""- This project is about sending Emails to registered Email IDs using **Smtplib Module**""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Send_email)""")
-
-    st.markdown("---")
-
-    st.markdown("<h3 style='text-align: left; color: #b8f224;'>Send Text Message</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: left; color: darkblue;'>June 2020 - July 2020</div>", unsafe_allow_html=True)
-    st.markdown("""- This project is about sending text messages to the registered phone number using **FAST2SMS**""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/35/000000/github.png)](https://github.com/iamswati/Send_text_msg)""")
-
-
-#DIGITAL BADGES & CERTIFICATES
-elif choice == 'Digital Badges & Certificates':
+def show_interactive_gallery():
+    st.markdown("""
+    <h2>
+        <span class="emoji">📸</span>
+        <span class="text-gradient">Training Sessions Gallery</span>
+    </h2>
+    """, unsafe_allow_html=True)
     
-    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Digital Badges & Certificates</h1>", unsafe_allow_html=True)
-    st.markdown("<div><h4 style='text-align: left; colour: darkblue;'>Earned several Digital Badges & Certificates from HackerRank, IBM SkillsBuild, Udemy, etc.</h4></div>", unsafe_allow_html=True)
-
-    st.markdown("""---""")
-
-    st.markdown("""[![Career Explorer](https://images.credly.com/size/200x200/images/6235075a-ee6b-4f23-ad48-f06c20993fb2/Career_Explorer.png)](https://www.credly.com/earner/earned/badge/4b3a72ba-e060-4be5-9071-ee2471cd3db7)                                                                                                                         [![Machine Learning with Python](https://images.credly.com/size/200x200/images/5ae9bf9e-da6e-4cec-82eb-d2b4cfea9751/Machine_Learning_with_Python.png)](https://www.credly.com/earner/earned/badge/3a197375-1a1b-48ff-9c2a-848931b76a9c)                                                                                                                         [![Machine Learning, Deep Learning & Bayesian Learning](https://img-c.udemycdn.com/course/240x135/3780696_8049_7.jpg)](https://www.udemy.com/certificate/UC-250fea4f-970f-4f8e-8e8d-1770c8f109f0/)   """)
-
-    st.markdown("***")
-
-    st.markdown("""[![Data Visualization with Python](https://images.credly.com/size/200x200/images/76326afb-199d-4250-a74f-01bc86dda118/Cognitive_Class_-_Data_Visual_w_Python.png)](https://www.credly.com/earner/earned/badge/c46beb52-44d4-4b1d-9062-b25c97406fda)                                                                                                                                                             [![Statistics 101](https://images.credly.com/size/200x200/images/49211314-919e-4207-885a-7d2ff76ddb07/Statistics_101_-_CC.png)](https://www.credly.com/earner/earned/badge/8c47a5d2-48a6-4ddb-b5b7-044a52909c24)                                                                                                                                                                                                                                                                                                       [![Working in a Digital World: Professional Skills](https://images.credly.com/size/200x200/images/4f76c627-c180-49ae-a5a0-742885eef581/Working_in_a_Digital_World-_Professional_Skills.png)](https://www.credly.com/earner/earned/badge/a56638c4-093e-48dc-a8fa-dc22ab22fb13)""")
-
-    st.markdown("""---""")
+    st.markdown("""
+    <div class="">
+        <p style="color: var(--text-gray);">
+            Snapshots from various training sessions, workshops, and professional engagements. 
+            Each image tells a story of knowledge sharing and skill development.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    st.markdown("""[![Build Your Own Chatbot - Level 1](https://images.credly.com/size/200x200/images/b5243e36-b05f-426b-994a-87a535f1c217/Build_your_own_chatbot_-_CC_v3.png)](https://www.credly.com/earner/earned/badge/b2349367-3ec3-430f-b7cc-8daa93765c8e)                                                                                                                               [![Explorations into Mindfulness](https://images.credly.com/size/200x200/images/6599523a-e811-4775-b037-c4c1417b0b4e/Explorations_into_Mindfulness.png)](https://www.credly.com/earner/earned/badge/858666af-3c5d-4aa2-965b-b8c36eea9dcf)                                                                                                                                                [![Agile Explorer](https://images.credly.com/size/200x200/images/89e728ec-27f8-49ce-a8ea-2df7768f9594/Agile_Explorer.png)](https://www.credly.com/earner/earned/badge/a9477a0d-0395-4da0-bc34-5a155e74f9bd)""")
-
-    st.markdown("""---""")
-
-    st.markdown("""[![iamswati13](https://gdm-catalog-fmapi-prod.imgix.net/ProductLogo/8b9fc1fa-bb42-45c6-957b-3b6611c542f1.png?auto=format&ixlib=react-9.0.3)](https://www.hackerrank.com/iamswati13?hr_r=1)                                                                                                                                         [![Job Application Essentials](https://images.credly.com/size/200x200/images/7ae738cc-d7af-45fd-ad53-3e21666cdeca/Job_Application_Essentials.png)](https://www.credly.com/earner/earned/badge/f69dbed9-485a-423a-9f02-77907a7bbec7)                                                                                                                                                                                    [![verify-certificate?id=62iO0c98911j8kvfY1](https://www.guvi.in/images/webps/guvi-logo-full.webp)](https://www.guvi.in/verify-certificate?id=62iO0c98911j8kvfY1)""")
-
-    st.markdown("***")
+    # Gallery controls
+    col1, col2 = st.columns([2, 1])
+    with col1:
+        sort_option = st.selectbox("📋 Sort by", ["Newest", "Oldest", "A-Z", "Z-A"])
+    with col2:
+        view_style = st.radio("👁️ View", ["Grid", "List"], horizontal=True, key="gallery_view")
     
-    st.markdown("""[![Data Science Tools](https://images.credly.com/size/200x200/images/de9471ce-018c-4bf4-af49-5c9c1d488613/Data_Science_Tools.png)](https://www.credly.com/earner/earned/badge/ecb7003b-6858-40ac-b2e1-c8cceb2271b8)                             [![Data Science Foundations - Level 1](https://images.credly.com/size/200x200/images/5ca7b236-6105-4154-ba22-c8ae12ec1d8c/Data_Sci_Found_Level_1_-_CC_-_2019.png)](https://www.credly.com/earner/earned/badge/724ca5a7-5a00-412a-ac18-b1730653a3b6)                             [![Python for Data Science](https://images.credly.com/size/200x200/images/84ac9eff-b8a2-4683-846b-f59887a73801/Python_101_Data_Science.png)](https://www.credly.com/earner/earned/badge/3f6b8d3a-13de-4995-84ef-8ebfefc22a0a)                             """)
-
-    st.markdown("***")
-
-    st.markdown("""[![Data Analysis Using Python](https://images.credly.com/size/200x200/images/ba34cb1c-4344-43f5-9685-55e2e901c0f0/Data_Analysis_using_Python.png)](https://www.credly.com/earner/earned/badge/214b047a-f936-4e73-8a5a-c5114f6043b6)                             [![Data Visualization Using Python](https://images.credly.com/size/200x200/images/087eaefb-61a2-426b-ae74-74efca195667/Data_Visualization_Using_Python.png)](https://www.credly.com/earner/earned/badge/52b808f8-0c72-4dc2-b800-67997313aebc)                             [![Machine Learning with Python - Level 1](https://images.credly.com/size/200x200/images/53caf8cc-b5e9-4424-b4a7-7b069fa13db4/Machine_Learning_with_Python.png)](https://www.credly.com/earner/earned/badge/4bf02298-2f24-4d0f-863d-b1cbd5072ddd)                             """)
-
-    st.markdown("***")
-
-    st.markdown("""[![Data Science Methodologies](https://images.credly.com/size/200x200/images/dfd6eb51-4caa-4ffe-b107-85ece064370c/Data_Science_Methodologies.png)](https://www.credly.com/earner/earned/badge/dd218b52-34a9-4e32-a5da-e9a136d35972)                             [![Data Science Foundations - Level 2 (V2)](https://images.credly.com/size/200x200/images/d7321425-c989-4bf9-846a-cd2a647d213b/Data_Sci_Foundations_Level_2_-_CC_-_2019.png)](https://www.credly.com/earner/earned/badge/a265f8a4-bd0c-47a5-ba44-4da15432e6e9)                             """)
-
-    st.markdown("***")
-
-
-#RESUME
-elif choice == 'Resume':
-    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Resume</h1>", unsafe_allow_html=True)
-
-    st.markdown("<div><h4 style='text-align: left; colour: darkblue;'><a href='https://iamswati.github.io/Resume.pdf', target='_blank'>Click here for my Resume</a></h4></div>", unsafe_allow_html=True)
+    # Get all images from gallery directory
+    gallery_path = Path("gallery")
+    image_files = []
     
+    if gallery_path.exists() and gallery_path.is_dir():
+        for ext in ["*.jpg", "*.jpeg", "*.png", "*.webp"]:
+            image_files.extend(gallery_path.glob(ext))
+        
+        # Apply sorting
+        if sort_option == "Newest":
+            image_files.sort(key=os.path.getmtime, reverse=True)
+        elif sort_option == "Oldest":
+            image_files.sort(key=os.path.getmtime)
+        elif sort_option == "A-Z":
+            image_files.sort(key=lambda x: x.name)
+        elif sort_option == "Z-A":
+            image_files.sort(key=lambda x: x.name, reverse=True)
+        
+        if not image_files:
+            st.info("🔍 No images found matching your search criteria")
+            return
+            
+        # Pagination settings
+        items_per_page = 9 if view_style == "Grid" else 6
+        total_pages = (len(image_files) // items_per_page + (1 if len(image_files) % items_per_page else 0))
+        
+        # Pagination buttons
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col1:
+            if st.session_state.gallery_page > 1:
+                if st.button("⬅️ Previous", key="prev_page", use_container_width=True):
+                    st.session_state.gallery_page -= 1
+                    st.rerun()
+        with col2:
+            st.markdown(f"<div style='text-align: center; padding: 10px;'>Page {st.session_state.gallery_page} of {total_pages}</div>", 
+                        unsafe_allow_html=True)
+        with col3:
+            if st.session_state.gallery_page < total_pages:
+                if st.button("Next ➡️", key="next_page", use_container_width=True):
+                    st.session_state.gallery_page += 1
+                    st.rerun()
+        
+        # Calculate current page items
+        start_idx = (st.session_state.gallery_page - 1) * items_per_page
+        end_idx = min(start_idx + items_per_page, len(image_files))
+        current_page_images = image_files[start_idx:end_idx]
+        
+        # Show image grid or list
+        if view_style == "Grid":
+            cols = st.columns(3)
+            col_index = 0
+            
+            # Collect modals HTML
+            modals_html = ""
+            
+            for i, img_path in enumerate(current_page_images):
+                try:
+                    # Generate thumbnail (optimized, low resolution)
+                    thumb_b64 = generate_thumbnail(img_path, max_size=300)
+                    
+                    if thumb_b64:
+                        with cols[col_index]:
+                            # Create unique modal ID for this image
+                            modal_id = f"modal-{start_idx + i}"
+                            
+                            # Create clickable image that opens modal
+                            st.markdown(f"""
+                            <div style="margin-bottom: 30px;">  <!-- ADDED MARGIN CONTAINER -->
+                                <a href="#{modal_id}" class="gallery-link">
+                                    <div class="gallery-item">
+                                        <img src="data:image/jpeg;base64,{thumb_b64}" alt="">
+                                        <div class="gallery-overlay">
+                                            <!-- Empty overlay - no text -->
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            """, unsafe_allow_html=True)
+                        
+                        # Generate modal HTML
+                        full_b64 = load_full_image(img_path)
+                        if full_b64:
+                            modals_html += f"""
+                            <div id="{modal_id}" class="modal">
+                                <div class="modal-content">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="data:image/jpeg;base64,{full_b64}" alt="Full-size image">
+                                </div>
+                            </div>
+                            """
+                        
+                        col_index = (col_index + 1) % 3
+                except Exception as e:
+                    st.error(f"Error loading image: {img_path.name}")
+            
+            # Render all modals at the end
+            st.markdown(modals_html, unsafe_allow_html=True)
+        else:
+            # List view
+            for img_path in current_page_images:
+                with st.expander(f"📷 {img_path.stem.replace('_', ' ').title()}", expanded=False):
+                    col1, col2 = st.columns([1, 2])
+                    with col1:
+                        try:
+                            # Generate thumbnail (optimized, low resolution)
+                            thumb_b64 = generate_thumbnail(img_path, max_size=300)
+                            
+                            if thumb_b64:
+                                # Create unique modal ID for this image
+                                modal_id = f"modal-{img_path.name}"
+                                
+                                # Create clickable image that opens modal
+                                st.markdown(f"""
+                                <a href="#{modal_id}" class="gallery-link">
+                                    <div class="gallery-item">
+                                        <img src="data:image/jpeg;base64,{thumb_b64}" alt="" style="width:100%;">
+                                    </div>
+                                </a>
+                                """, unsafe_allow_html=True)
+                                
+                                # Generate modal HTML
+                                full_b64 = load_full_image(img_path)
+                                if full_b64:
+                                    st.markdown(f"""
+                                    <div id="{modal_id}" class="modal">
+                                        <div class="modal-content">
+                                            <a href="#" class="close">&times;</a>
+                                            <img src="data:image/jpeg;base64,{full_b64}" alt="Full-size image">
+                                        </div>
+                                    </div>
+                                    """, unsafe_allow_html=True)
+                        except Exception as e:
+                            st.error(f"Error loading image: {img_path.name}")
+                    with col2:
+                        st.write(f"**Filename:** {img_path.name}")
+                        st.write(f"**Size:** {img_path.stat().st_size // 1024} KB")
+                        st.write(f"**Session:** {img_path.stem.replace('_', ' ').title()}")
+    else:
+        # Create gallery directory if it doesn't exist
+        gallery_path.mkdir(exist_ok=True)
+        st.markdown("""
+        <div class="" style="text-align: center;">
+            <h3>📁 Gallery Directory Created</h3>
+            <p style="color: var(--text-gray);">
+                Add your training session photos to the <code>gallery</code> folder.<br>
+                Supported formats: JPG, JPEG, PNG, WEBP
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+def show_achievements():
+    st.markdown("""
+    <h2>
+        <span class="emoji">🏆</span>
+        <span class="text-gradient">Certifications & Achievements</span>
+    </h2>
+    """, unsafe_allow_html=True)
+    
+    achievements_data = [
+        {"title": "IBM Certified Data Analyst", "year": "2022", "issuer": "IBM & Think-it"},
+        {"title": "19+ IBM Digital Badges", "year": "2021-2022", "issuer": "IBM SkillsBuild"},
+        {"title": "9th All-India Female Rank (84.2%)", "year": "2022", "issuer": "Advanced Diploma in IT, Networking & Cloud Computing NSTI-DGT (Govt. of India)"},
+        {"title": "Featured on IBM SkillsBuild", "year": "2021", "issuer": "For COVID-19 Analytics Project"}
+    ]
+    
+    # Interactive achievement showcase
+    for achievement in achievements_data:
+        st.markdown(f"""
+        <div class="">
+            <h4>🎖️ {achievement['title']}</h4>
+            <p><strong>{achievement['issuer']}</strong> • {achievement['year']}</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-#CONTACT
-elif choice == 'Contact':
+def show_contact_form():
+    st.markdown("""<a name="contact-section"></a>""", unsafe_allow_html=True)
+    st.markdown("""
+    <h2>
+        <span class="emoji">📬</span>
+        <span class="text-gradient">Get In Touch</span>
+    </h2>
+    """, unsafe_allow_html=True)
     
-    st.markdown("<h1 style='text-align: center; color: #02fa6e;'>Contact</h1>", unsafe_allow_html=True)
+    with st.container():
+        st.markdown("""
+        <div style="text-align: center;">
+            <h3>Let's Collaborate!</h3>
+            <p style="color: var(--text-gray); margin: 20px 0; font-size: 1.1rem;">
+                I'm always excited to discuss new opportunities in AI training, 
+                curriculum design, and innovative technology projects.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.subheader("📍 Contact Details")
+            st.markdown("**📧 Email:**  \nswatigulati@outlook.in")
+            st.markdown("**📱 Phone:**  \n+91 930 697 9702")
+            st.markdown("**🌍 Location:**  \nDelhi, India")
+        
+        with col2:
+            st.subheader("🔗 Connect With Me")
+            st.markdown("**LinkedIn:**  \n[iamswatigulati](https://linkedin.com/in/iamswatigulati)")
+            st.markdown("**Portfolio:**  \n[View Online](https://tinyurl.com/swati-portfolio)")
+            st.markdown("**GitHub:**  \n[iamswati](https://github.com/iamswati)")
+        
+        # Buttons
+        st.markdown("<div style='text-align: center; margin-top: 20px;'>", unsafe_allow_html=True)
+        col_btn1, col_btn2, col_btn3 = st.columns(3)
+        with col_btn1:
+            st.link_button("📧 Email Me", "mailto:swatigulati@outlook.in")
+        with col_btn2:
+            st.link_button("🔗 LinkedIn", "https://linkedin.com/in/iamswatigulati")
+        with col_btn3:
+            st.link_button("🐙 GitHub", "https://github.com/iamswati")
+        st.markdown("</div>", unsafe_allow_html=True)
+# ═══════════════════════════════════════════════════════════════════════════════
+# MAIN APPLICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def main():
+    inject_custom_css()
     
-    st.markdown("""[![Foo](https://img.icons8.com/external-kiranshastry-solid-kiranshastry/25/000000/external-email-advertising-kiranshastry-solid-kiranshastry-1.png)](sg131019@gmail.com)[ **sg131019@gmail.com**](sg131019@gmail.com)""")
-    st.markdown("""![Foo](https://img.icons8.com/external-those-icons-fill-those-icons/25/000000/external-mobile-phone-mobile-telephone-those-icons-fill-those-icons-4.png) **+919306979702**""")
-    st.markdown("""![Foo](https://img.icons8.com/material-rounded/25/000000/marker.png) **Delhi, India**""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/linkedin.png)](https://www.linkedin.com/in/iamswatigulati/)[ **iamswatigulati**](https://www.linkedin.com/in/iamswatigulati/)""")
-    st.markdown("""![Foo](https://img.icons8.com/ios-glyphs/25/000000/skype.png) **live:.cid.a9e896b0474b62f0**""")
-    st.markdown("""[![Foo](https://img.icons8.com/ios-glyphs/25/000000/github.png)](https://github.com/iamswati)[ **iamswati**](https://github.com/iamswati)""")
-    st.markdown("""[![Foo](https://img.icons8.com/windows/25/000000/hackerrank.png)](https://www.hackerrank.com/iamswati13)[ **iamswati13**](https://www.hackerrank.com/iamswati13)""")
+    # Enhanced Sidebar with profile
+    with st.sidebar:
+        # Load sidebar profile image
+        sidebar_img = get_image_base64("profile.jpeg", max_size=120)
+        
+        if sidebar_img:
+            st.markdown(f"""
+            <div style="text-align: center; padding: 20px;">
+                <div style="width: 120px; height: 120px; border-radius: 50%; 
+                            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+                            margin: 0 auto 20px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
+                    <img src="data:image/jpeg;base64,{sidebar_img}" 
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h2 style="display: block; text-align: center;">Swati Gulati</h2>   
+                <p style="color: var(--text-gray);">🎯 Self-Taught Programmer</p>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            # Fallback to emoji
+            st.markdown("""
+            <div style="text-align: center; padding: 20px;">
+                <div style="width: 120px; height: 120px; border-radius: 50%; 
+                            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+                            margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 48px;">👩‍💻</span>
+                </div>
+                <h2 style="display: block; text-align: center;">Swati Gulati</h2>
+                <p style="color: var(--text-gray);">🎯 Self-Taught Programmer</p>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        # Navigation with icons
+        page = st.radio(
+            "🧭 Navigation",
+            [
+                "🏠 Home",
+                "👤 About & Skills", 
+                "💼 Experience",
+                "🛠️ Projects",
+                "📸 Gallery",
+                "🏆 Achievements",
+                "📬 Contact"
+            ],
+            key="navigation"
+        )
+        
+        # Sidebar footer
+        st.markdown("""
+        <div style="position: fixed; bottom: 20px; text-align: center;">
+            <p style="font-size: 0.8rem; color: var(--text-gray);">
+                © 2025 Swati Gulati<br>
+                Built with ❤️ using Streamlit
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
     
-    
+    # Main content routing
+    if page == "🏠 Home":
+        show_hero_section()
+    elif page == "👤 About & Skills":
+        show_about_skills()
+    elif page == "💼 Experience":
+        show_experience_timeline()
+    elif page == "🛠️ Projects":
+        show_projects_showcase()
+    elif page == "📸 Gallery":
+        show_interactive_gallery()
+    elif page == "🏆 Achievements":
+        show_achievements()
+    elif page == "📬 Contact":
+        show_contact_form()
+
+if __name__ == "__main__":
+    main()
