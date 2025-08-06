@@ -3,7 +3,6 @@ import os
 import json
 from PIL import Image
 from pathlib import Path
-from streamlit_timeline import timeline
 import base64
 from io import BytesIO
 import urllib.parse
@@ -156,11 +155,11 @@ def inject_custom_css():
         a.custom-button {
             color: white !important;
             }
-
+        
         a.custom-button:hover {
             color: white !important;
             }        
-
+        
         /* Interactive Buttons */
         .custom-button {
             background: linear-gradient(200deg, var(--primary-blue), var(--secondary-blue));
@@ -325,14 +324,6 @@ def inject_custom_css():
             backdrop-filter: blur(10px);
         }
         
-        /* Timeline Styling */
-        .timeline-container {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
         /* Achievement Badges */
         .badge {
             display: inline-block;
@@ -349,6 +340,99 @@ def inject_custom_css():
         @keyframes badgeGlow {
             0% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
             100% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
+        }
+        
+        /* Custom Timeline Styling */
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+            margin: 40px 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--accent-cyan));
+            border-radius: 2px;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-event {
+            position: relative;
+            margin-bottom: 60px;
+            width: 45%;
+        }
+        
+        .timeline-event:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-event:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-date {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid var(--card-bg);
+        }
+        
+        .timeline-event:nth-child(even) .timeline-content::before {
+            left: -10px;
+            right: auto;
+            border-left: none;
+            border-right: 10px solid var(--card-bg);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 25px;
+            right: -13px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-event:nth-child(even) .timeline-dot {
+            left: -13px;
+            right: auto;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -382,7 +466,7 @@ def create_skill_bar(skill_name, percentage):
 def create_project_card(title, description, tech_stack, link=None):
     link_html = f'<a href="{link}" class="custom-button" target="_blank" style="color: white !important;">View Project</a>' if link else ""
     return f"""
-     <div class="">
+     <div class="portfolio-card">
         <h3>{title}</h3>
         <p style="color: var(--text-gray); margin: 15px 0;">{description}</p>
         <div style="margin: 15px 0;">
@@ -496,7 +580,7 @@ def show_about_skills():
     """, unsafe_allow_html=True)
     
     st.markdown("""
-    <div class="">
+    <div class="portfolio-card">
         <p style="font-size: 1.1rem; line-height: 1.6;">
             IT Technologies Trainer with 2+ years delivering high-impact AI, ML, and Gen-AI Programs, 
             including specialized training in Prompt Engineering Techniques. Designed and delivered 
@@ -519,14 +603,14 @@ def show_about_skills():
     with col1:
         st.markdown("### Technical Skills")
         st.markdown("""
-        <div class="">
+        <div class="portfolio-card">
             {python_bar}
             {sql_bar}
             {htmlcss_bar}
             {data_analysis_bar}
             {ml_bar}
             {prompt_bar}
-        </div>
+        
         """.format(
             python_bar=create_skill_bar("Python and JavaScript", 95),
             sql_bar=create_skill_bar("SQL", 85),
@@ -539,14 +623,14 @@ def show_about_skills():
     with col2:
         st.markdown("### Tools & Platforms")
         st.markdown("""
-        <div class="">
+        <div class="portfolio-card">
             {powerbi_bar}
             {tf_keras_bar}
             {git_bar}
             {cloud_bar}
             {web_bar}
             {msoffice_bar}
-        </div>
+        
         """.format(
             powerbi_bar=create_skill_bar("Power BI", 90),
             tf_keras_bar=create_skill_bar("TensorFlow/Keras", 88),
@@ -565,31 +649,55 @@ def show_experience_timeline():
     """, unsafe_allow_html=True)
     
     # Career timeline data
-    timeline_data = {
-        "events": [
-            {
-                "start_date": {"year": "2022", "month": "9"},
-                "end_date": {"year": "2025", "month": "6"},
-                "text": {
-                    "headline": "Subject Matter Expert (IT Training)",
-                    "text": "<b>Edunet Foundation</b><br>• Certified by the Great Place To Work®, an organization that works with Top Global Corporations & the Indian Government.<br>• Delivered AI/Data Science Courses/Workshops for IBM and Microsoft programs.<br>• Created technical curriculum for 200+ professionals."
-                },
-                "background": {"color": "#2B2C36"}
-            },
-            {
-                "start_date": {"year": "2021", "month": "9"},
-                "end_date": {"year": "2022", "month": "2"},
-                "text": {
-                    "headline": "Artificial Intelligence Intern",
-                    "text": "<b>IBM India Pvt. Ltd.</b><br>• Developed brain-tumor detection system (92% accuracy).<br>• Led 5-member AI team.<br>• Created reusable AI knowledge base."
-                },
-                "background": {"color": "#262730"}
-            }
-        ]
-    }
+    timeline_data = [
+        {
+            "start_date": "Sep 2022",
+            "end_date": "Jun 2025",
+            "title": "Subject Matter Expert (IT Training)",
+            "company": "Edunet Foundation",
+            "description": [
+                "Certified by the Great Place To Work®, an organization that works with Top Global Corporations & the Indian Government.",
+                "Delivered AI/Data Science Courses/Workshops for IBM and Microsoft programs.",
+                "Created technical curriculum for 200+ professionals."
+            ]
+        },
+        {
+            "start_date": "Sep 2021",
+            "end_date": "Feb 2022",
+            "title": "Artificial Intelligence Intern",
+            "company": "IBM India Pvt. Ltd.",
+            "description": [
+                "Developed brain-tumor detection system (92% accuracy).",
+                "Led 5-member AI team.",
+                "Created reusable AI knowledge base."
+            ]
+        }
+    ]
     
-    # Render the timeline
-    timeline(json.dumps(timeline_data), height=400)
+    # Render timeline using Streamlit components
+    st.markdown('<div class="timeline-container">', unsafe_allow_html=True)
+    
+    for event in timeline_data:
+        with st.container():
+            st.markdown(f"""
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">{event['start_date']} - {event['end_date']}</span>
+                    <h3>{event['title']}</h3>
+                    <p><strong>{event['company']}</strong></p>
+            """, unsafe_allow_html=True)
+            
+            with st.expander("Details", expanded=True):
+                for item in event['description']:
+                    st.markdown(f"• {item}")
+            
+            st.markdown("""
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
 def show_projects_showcase():
     st.markdown("""
@@ -645,7 +753,7 @@ def show_interactive_gallery():
     """, unsafe_allow_html=True)
     
     st.markdown("""
-    <div class="">
+    <div class="portfolio-card">
         <p style="color: var(--text-gray);">
             Snapshots from various training sessions, workshops, and professional engagements. 
             Each image tells a story of knowledge sharing and skill development.
@@ -801,7 +909,7 @@ def show_interactive_gallery():
         # Create gallery directory if it doesn't exist
         gallery_path.mkdir(exist_ok=True)
         st.markdown("""
-        <div class="" style="text-align: center;">
+        <div class="portfolio-card" style="text-align: center;">
             <h3>📁 Gallery Directory Created</h3>
             <p style="color: var(--text-gray);">
                 Add your training session photos to the <code>gallery</code> folder.<br>
@@ -809,6 +917,7 @@ def show_interactive_gallery():
             </p>
         </div>
         """, unsafe_allow_html=True)
+
 def show_achievements():
     st.markdown("""
     <h2>
@@ -827,7 +936,7 @@ def show_achievements():
     # Interactive achievement showcase
     for achievement in achievements_data:
         st.markdown(f"""
-        <div class="">
+        <div class="portfolio-card">
             <h4>🎖️ {achievement['title']}</h4>
             <p><strong>{achievement['issuer']}</strong> • {achievement['year']}</p>
         </div>
@@ -844,7 +953,7 @@ def show_contact_form():
     
     with st.container():
         st.markdown("""
-        <div style="text-align: center;">
+        <div class="portfolio-card" style="text-align: center;">
             <h3>Let's Collaborate!</h3>
             <p style="color: var(--text-gray); margin: 20px 0; font-size: 1.1rem;">
                 I'm always excited to discuss new opportunities in AI training, 
@@ -877,6 +986,7 @@ def show_contact_form():
         with col_btn3:
             st.link_button("🐙 GitHub", "https://github.com/iamswati")
         st.markdown("</div>", unsafe_allow_html=True)
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN APPLICATION
 # ═══════════════════════════════════════════════════════════════════════════════
